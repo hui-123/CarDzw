@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.StaffMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Staff" >
+    <id column="stano" property="stano" jdbcType="VARCHAR" />
+    <result column="dimno" property="dimno" jdbcType="VARCHAR" />
+    <result column="posno" property="posno" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="depno" property="depno" jdbcType="INTEGER" />
+    <result column="staname" property="staname" jdbcType="VARCHAR" />
+    <result column="stasex" property="stasex" jdbcType="VARCHAR" />
+    <result column="stapicture" property="stapicture" jdbcType="VARCHAR" />
+    <result column="stashop" property="stashop" jdbcType="VARCHAR" />
+    <result column="stadepartment" property="stadepartment" jdbcType="INTEGER" />
+    <result column="staproperty" property="staproperty" jdbcType="VARCHAR" />
+    <result column="staaddress" property="staaddress" jdbcType="VARCHAR" />
+    <result column="staphone" property="staphone" jdbcType="VARCHAR" />
+    <result column="staentrydate" property="staentrydate" jdbcType="DATE" />
+    <result column="stausedate" property="stausedate" jdbcType="DATE" />
+    <result column="stabirthdate" property="stabirthdate" jdbcType="DATE" />
+    <result column="stacontractstart" property="stacontractstart" jdbcType="DATE" />
+    <result column="stacontractover" property="stacontractover" jdbcType="DATE" />
+    <result column="stausername" property="stausername" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    stano, dimno, posno, username, depno, staname, stasex, stapicture, stashop, stadepartment, 
+    staproperty, staaddress, staphone, staentrydate, stausedate, stabirthdate, stacontractstart, 
+    stacontractover, stausername
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from staff
+    where stano = #{stano,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from staff
+    where stano = #{stano,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Staff" >
+    insert into staff (stano, dimno, posno, 
+      username, depno, staname, 
+      stasex, stapicture, stashop, 
+      stadepartment, staproperty, staaddress, 
+      staphone, staentrydate, stausedate, 
+      stabirthdate, stacontractstart, stacontractover, 
+      stausername)
+    values (#{stano,jdbcType=VARCHAR}, #{dimno,jdbcType=VARCHAR}, #{posno,jdbcType=INTEGER}, 
+      #{username,jdbcType=VARCHAR}, #{depno,jdbcType=INTEGER}, #{staname,jdbcType=VARCHAR}, 
+      #{stasex,jdbcType=VARCHAR}, #{stapicture,jdbcType=VARCHAR}, #{stashop,jdbcType=VARCHAR}, 
+      #{stadepartment,jdbcType=INTEGER}, #{staproperty,jdbcType=VARCHAR}, #{staaddress,jdbcType=VARCHAR}, 
+      #{staphone,jdbcType=VARCHAR}, #{staentrydate,jdbcType=DATE}, #{stausedate,jdbcType=DATE}, 
+      #{stabirthdate,jdbcType=DATE}, #{stacontractstart,jdbcType=DATE}, #{stacontractover,jdbcType=DATE}, 
+      #{stausername,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Staff" >
+    insert into staff
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stano != null" >
+        stano,
+      </if>
+      <if test="dimno != null" >
+        dimno,
+      </if>
+      <if test="posno != null" >
+        posno,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="depno != null" >
+        depno,
+      </if>
+      <if test="staname != null" >
+        staname,
+      </if>
+      <if test="stasex != null" >
+        stasex,
+      </if>
+      <if test="stapicture != null" >
+        stapicture,
+      </if>
+      <if test="stashop != null" >
+        stashop,
+      </if>
+      <if test="stadepartment != null" >
+        stadepartment,
+      </if>
+      <if test="staproperty != null" >
+        staproperty,
+      </if>
+      <if test="staaddress != null" >
+        staaddress,
+      </if>
+      <if test="staphone != null" >
+        staphone,
+      </if>
+      <if test="staentrydate != null" >
+        staentrydate,
+      </if>
+      <if test="stausedate != null" >
+        stausedate,
+      </if>
+      <if test="stabirthdate != null" >
+        stabirthdate,
+      </if>
+      <if test="stacontractstart != null" >
+        stacontractstart,
+      </if>
+      <if test="stacontractover != null" >
+        stacontractover,
+      </if>
+      <if test="stausername != null" >
+        stausername,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stano != null" >
+        #{stano,jdbcType=VARCHAR},
+      </if>
+      <if test="dimno != null" >
+        #{dimno,jdbcType=VARCHAR},
+      </if>
+      <if test="posno != null" >
+        #{posno,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="depno != null" >
+        #{depno,jdbcType=INTEGER},
+      </if>
+      <if test="staname != null" >
+        #{staname,jdbcType=VARCHAR},
+      </if>
+      <if test="stasex != null" >
+        #{stasex,jdbcType=VARCHAR},
+      </if>
+      <if test="stapicture != null" >
+        #{stapicture,jdbcType=VARCHAR},
+      </if>
+      <if test="stashop != null" >
+        #{stashop,jdbcType=VARCHAR},
+      </if>
+      <if test="stadepartment != null" >
+        #{stadepartment,jdbcType=INTEGER},
+      </if>
+      <if test="staproperty != null" >
+        #{staproperty,jdbcType=VARCHAR},
+      </if>
+      <if test="staaddress != null" >
+        #{staaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="staphone != null" >
+        #{staphone,jdbcType=VARCHAR},
+      </if>
+      <if test="staentrydate != null" >
+        #{staentrydate,jdbcType=DATE},
+      </if>
+      <if test="stausedate != null" >
+        #{stausedate,jdbcType=DATE},
+      </if>
+      <if test="stabirthdate != null" >
+        #{stabirthdate,jdbcType=DATE},
+      </if>
+      <if test="stacontractstart != null" >
+        #{stacontractstart,jdbcType=DATE},
+      </if>
+      <if test="stacontractover != null" >
+        #{stacontractover,jdbcType=DATE},
+      </if>
+      <if test="stausername != null" >
+        #{stausername,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Staff" >
+    update staff
+    <set >
+      <if test="dimno != null" >
+        dimno = #{dimno,jdbcType=VARCHAR},
+      </if>
+      <if test="posno != null" >
+        posno = #{posno,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="depno != null" >
+        depno = #{depno,jdbcType=INTEGER},
+      </if>
+      <if test="staname != null" >
+        staname = #{staname,jdbcType=VARCHAR},
+      </if>
+      <if test="stasex != null" >
+        stasex = #{stasex,jdbcType=VARCHAR},
+      </if>
+      <if test="stapicture != null" >
+        stapicture = #{stapicture,jdbcType=VARCHAR},
+      </if>
+      <if test="stashop != null" >
+        stashop = #{stashop,jdbcType=VARCHAR},
+      </if>
+      <if test="stadepartment != null" >
+        stadepartment = #{stadepartment,jdbcType=INTEGER},
+      </if>
+      <if test="staproperty != null" >
+        staproperty = #{staproperty,jdbcType=VARCHAR},
+      </if>
+      <if test="staaddress != null" >
+        staaddress = #{staaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="staphone != null" >
+        staphone = #{staphone,jdbcType=VARCHAR},
+      </if>
+      <if test="staentrydate != null" >
+        staentrydate = #{staentrydate,jdbcType=DATE},
+      </if>
+      <if test="stausedate != null" >
+        stausedate = #{stausedate,jdbcType=DATE},
+      </if>
+      <if test="stabirthdate != null" >
+        stabirthdate = #{stabirthdate,jdbcType=DATE},
+      </if>
+      <if test="stacontractstart != null" >
+        stacontractstart = #{stacontractstart,jdbcType=DATE},
+      </if>
+      <if test="stacontractover != null" >
+        stacontractover = #{stacontractover,jdbcType=DATE},
+      </if>
+      <if test="stausername != null" >
+        stausername = #{stausername,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stano = #{stano,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Staff" >
+    update staff
+    set dimno = #{dimno,jdbcType=VARCHAR},
+      posno = #{posno,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      depno = #{depno,jdbcType=INTEGER},
+      staname = #{staname,jdbcType=VARCHAR},
+      stasex = #{stasex,jdbcType=VARCHAR},
+      stapicture = #{stapicture,jdbcType=VARCHAR},
+      stashop = #{stashop,jdbcType=VARCHAR},
+      stadepartment = #{stadepartment,jdbcType=INTEGER},
+      staproperty = #{staproperty,jdbcType=VARCHAR},
+      staaddress = #{staaddress,jdbcType=VARCHAR},
+      staphone = #{staphone,jdbcType=VARCHAR},
+      staentrydate = #{staentrydate,jdbcType=DATE},
+      stausedate = #{stausedate,jdbcType=DATE},
+      stabirthdate = #{stabirthdate,jdbcType=DATE},
+      stacontractstart = #{stacontractstart,jdbcType=DATE},
+      stacontractover = #{stacontractover,jdbcType=DATE},
+      stausername = #{stausername,jdbcType=VARCHAR}
+    where stano = #{stano,jdbcType=VARCHAR}
+  </update>
+</mapper>

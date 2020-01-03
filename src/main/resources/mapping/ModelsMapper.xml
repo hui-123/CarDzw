@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ModelsMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Models" >
+    <id column="mobrano" property="mobrano" jdbcType="VARCHAR" />
+    <result column="brano" property="brano" jdbcType="VARCHAR" />
+    <result column="modno" property="modno" jdbcType="VARCHAR" />
+    <result column="modname" property="modname" jdbcType="VARCHAR" />
+    <result column="referenceprice" property="referenceprice" jdbcType="INTEGER" />
+    <result column="modpicture" property="modpicture" jdbcType="VARCHAR" />
+    <result column="modenginebrano" property="modenginebrano" jdbcType="INTEGER" />
+    <result column="modimport" property="modimport" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    mobrano, brano, modno, modname, referenceprice, modpicture, modenginebrano, modimport
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from models
+    where mobrano = #{mobrano,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from models
+    where mobrano = #{mobrano,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Models" >
+    insert into models (mobrano, brano, modno, 
+      modname, referenceprice, modpicture, 
+      modenginebrano, modimport)
+    values (#{mobrano,jdbcType=VARCHAR}, #{brano,jdbcType=VARCHAR}, #{modno,jdbcType=VARCHAR}, 
+      #{modname,jdbcType=VARCHAR}, #{referenceprice,jdbcType=INTEGER}, #{modpicture,jdbcType=VARCHAR}, 
+      #{modenginebrano,jdbcType=INTEGER}, #{modimport,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Models" >
+    insert into models
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mobrano != null" >
+        mobrano,
+      </if>
+      <if test="brano != null" >
+        brano,
+      </if>
+      <if test="modno != null" >
+        modno,
+      </if>
+      <if test="modname != null" >
+        modname,
+      </if>
+      <if test="referenceprice != null" >
+        referenceprice,
+      </if>
+      <if test="modpicture != null" >
+        modpicture,
+      </if>
+      <if test="modenginebrano != null" >
+        modenginebrano,
+      </if>
+      <if test="modimport != null" >
+        modimport,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mobrano != null" >
+        #{mobrano,jdbcType=VARCHAR},
+      </if>
+      <if test="brano != null" >
+        #{brano,jdbcType=VARCHAR},
+      </if>
+      <if test="modno != null" >
+        #{modno,jdbcType=VARCHAR},
+      </if>
+      <if test="modname != null" >
+        #{modname,jdbcType=VARCHAR},
+      </if>
+      <if test="referenceprice != null" >
+        #{referenceprice,jdbcType=INTEGER},
+      </if>
+      <if test="modpicture != null" >
+        #{modpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="modenginebrano != null" >
+        #{modenginebrano,jdbcType=INTEGER},
+      </if>
+      <if test="modimport != null" >
+        #{modimport,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Models" >
+    update models
+    <set >
+      <if test="brano != null" >
+        brano = #{brano,jdbcType=VARCHAR},
+      </if>
+      <if test="modno != null" >
+        modno = #{modno,jdbcType=VARCHAR},
+      </if>
+      <if test="modname != null" >
+        modname = #{modname,jdbcType=VARCHAR},
+      </if>
+      <if test="referenceprice != null" >
+        referenceprice = #{referenceprice,jdbcType=INTEGER},
+      </if>
+      <if test="modpicture != null" >
+        modpicture = #{modpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="modenginebrano != null" >
+        modenginebrano = #{modenginebrano,jdbcType=INTEGER},
+      </if>
+      <if test="modimport != null" >
+        modimport = #{modimport,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where mobrano = #{mobrano,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Models" >
+    update models
+    set brano = #{brano,jdbcType=VARCHAR},
+      modno = #{modno,jdbcType=VARCHAR},
+      modname = #{modname,jdbcType=VARCHAR},
+      referenceprice = #{referenceprice,jdbcType=INTEGER},
+      modpicture = #{modpicture,jdbcType=VARCHAR},
+      modenginebrano = #{modenginebrano,jdbcType=INTEGER},
+      modimport = #{modimport,jdbcType=VARCHAR}
+    where mobrano = #{mobrano,jdbcType=VARCHAR}
+  </update>
+</mapper>

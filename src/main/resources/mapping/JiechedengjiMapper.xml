@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.JiechedengjiMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Jiechedengji" >
+    <id column="jiecvdnumber" property="jiecvdnumber" jdbcType="VARCHAR" />
+    <result column="cvdnumber" property="cvdnumber" jdbcType="VARCHAR" />
+    <result column="artisanno" property="artisanno" jdbcType="VARCHAR" />
+    <result column="danju" property="danju" jdbcType="VARCHAR" />
+    <result column="yewulx" property="yewulx" jdbcType="VARCHAR" />
+    <result column="jieclino" property="jieclino" jdbcType="VARCHAR" />
+    <result column="jcdmaintainodd" property="jcdmaintainodd" jdbcType="VARCHAR" />
+    <result column="jcddocumenttype" property="jcddocumenttype" jdbcType="VARCHAR" />
+    <result column="jcdbillingstate" property="jcdbillingstate" jdbcType="DATE" />
+    <result column="jcdyujiwanggongshijian" property="jcdyujiwanggongshijian" jdbcType="DATE" />
+    <result column="jcdwanggongshijian" property="jcdwanggongshijian" jdbcType="DATE" />
+    <result column="Attribute_166jcdjiesuanshijian" property="attribute166jcdjiesuanshijian" jdbcType="DATE" />
+    <result column="jcdyujijine" property="jcdyujijine" jdbcType="INTEGER" />
+    <result column="jcdfuwuguwen" property="jcdfuwuguwen" jdbcType="VARCHAR" />
+    <result column="jcdjiecheren" property="jcdjiecheren" jdbcType="VARCHAR" />
+    <result column="jcdwugongyuanyin" property="jcdwugongyuanyin" jdbcType="VARCHAR" />
+    <result column="jcdqualitypeople" property="jcdqualitypeople" jdbcType="VARCHAR" />
+    <result column="jartisanno" property="jartisanno" jdbcType="VARCHAR" />
+    <result column="jcdpunishmentmoney" property="jcdpunishmentmoney" jdbcType="INTEGER" />
+    <result column="jcdreworkcause" property="jcdreworkcause" jdbcType="VARCHAR" />
+    <result column="jcdreworknumber" property="jcdreworknumber" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    jiecvdnumber, cvdnumber, artisanno, danju, yewulx, jieclino, jcdmaintainodd, jcddocumenttype, 
+    jcdbillingstate, jcdyujiwanggongshijian, jcdwanggongshijian, Attribute_166jcdjiesuanshijian, 
+    jcdyujijine, jcdfuwuguwen, jcdjiecheren, jcdwugongyuanyin, jcdqualitypeople, jartisanno, 
+    jcdpunishmentmoney, jcdreworkcause, jcdreworknumber
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from jiechedengji
+    where jiecvdnumber = #{jiecvdnumber,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from jiechedengji
+    where jiecvdnumber = #{jiecvdnumber,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Jiechedengji" >
+    insert into jiechedengji (jiecvdnumber, cvdnumber, artisanno, 
+      danju, yewulx, jieclino, 
+      jcdmaintainodd, jcddocumenttype, jcdbillingstate, 
+      jcdyujiwanggongshijian, jcdwanggongshijian, Attribute_166jcdjiesuanshijian, 
+      jcdyujijine, jcdfuwuguwen, jcdjiecheren, 
+      jcdwugongyuanyin, jcdqualitypeople, jartisanno, 
+      jcdpunishmentmoney, jcdreworkcause, jcdreworknumber
+      )
+    values (#{jiecvdnumber,jdbcType=VARCHAR}, #{cvdnumber,jdbcType=VARCHAR}, #{artisanno,jdbcType=VARCHAR}, 
+      #{danju,jdbcType=VARCHAR}, #{yewulx,jdbcType=VARCHAR}, #{jieclino,jdbcType=VARCHAR}, 
+      #{jcdmaintainodd,jdbcType=VARCHAR}, #{jcddocumenttype,jdbcType=VARCHAR}, #{jcdbillingstate,jdbcType=DATE}, 
+      #{jcdyujiwanggongshijian,jdbcType=DATE}, #{jcdwanggongshijian,jdbcType=DATE}, #{attribute166jcdjiesuanshijian,jdbcType=DATE}, 
+      #{jcdyujijine,jdbcType=INTEGER}, #{jcdfuwuguwen,jdbcType=VARCHAR}, #{jcdjiecheren,jdbcType=VARCHAR}, 
+      #{jcdwugongyuanyin,jdbcType=VARCHAR}, #{jcdqualitypeople,jdbcType=VARCHAR}, #{jartisanno,jdbcType=VARCHAR}, 
+      #{jcdpunishmentmoney,jdbcType=INTEGER}, #{jcdreworkcause,jdbcType=VARCHAR}, #{jcdreworknumber,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Jiechedengji" >
+    insert into jiechedengji
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="jiecvdnumber != null" >
+        jiecvdnumber,
+      </if>
+      <if test="cvdnumber != null" >
+        cvdnumber,
+      </if>
+      <if test="artisanno != null" >
+        artisanno,
+      </if>
+      <if test="danju != null" >
+        danju,
+      </if>
+      <if test="yewulx != null" >
+        yewulx,
+      </if>
+      <if test="jieclino != null" >
+        jieclino,
+      </if>
+      <if test="jcdmaintainodd != null" >
+        jcdmaintainodd,
+      </if>
+      <if test="jcddocumenttype != null" >
+        jcddocumenttype,
+      </if>
+      <if test="jcdbillingstate != null" >
+        jcdbillingstate,
+      </if>
+      <if test="jcdyujiwanggongshijian != null" >
+        jcdyujiwanggongshijian,
+      </if>
+      <if test="jcdwanggongshijian != null" >
+        jcdwanggongshijian,
+      </if>
+      <if test="attribute166jcdjiesuanshijian != null" >
+        Attribute_166jcdjiesuanshijian,
+      </if>
+      <if test="jcdyujijine != null" >
+        jcdyujijine,
+      </if>
+      <if test="jcdfuwuguwen != null" >
+        jcdfuwuguwen,
+      </if>
+      <if test="jcdjiecheren != null" >
+        jcdjiecheren,
+      </if>
+      <if test="jcdwugongyuanyin != null" >
+        jcdwugongyuanyin,
+      </if>
+      <if test="jcdqualitypeople != null" >
+        jcdqualitypeople,
+      </if>
+      <if test="jartisanno != null" >
+        jartisanno,
+      </if>
+      <if test="jcdpunishmentmoney != null" >
+        jcdpunishmentmoney,
+      </if>
+      <if test="jcdreworkcause != null" >
+        jcdreworkcause,
+      </if>
+      <if test="jcdreworknumber != null" >
+        jcdreworknumber,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="jiecvdnumber != null" >
+        #{jiecvdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cvdnumber != null" >
+        #{cvdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="artisanno != null" >
+        #{artisanno,jdbcType=VARCHAR},
+      </if>
+      <if test="danju != null" >
+        #{danju,jdbcType=VARCHAR},
+      </if>
+      <if test="yewulx != null" >
+        #{yewulx,jdbcType=VARCHAR},
+      </if>
+      <if test="jieclino != null" >
+        #{jieclino,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdmaintainodd != null" >
+        #{jcdmaintainodd,jdbcType=VARCHAR},
+      </if>
+      <if test="jcddocumenttype != null" >
+        #{jcddocumenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdbillingstate != null" >
+        #{jcdbillingstate,jdbcType=DATE},
+      </if>
+      <if test="jcdyujiwanggongshijian != null" >
+        #{jcdyujiwanggongshijian,jdbcType=DATE},
+      </if>
+      <if test="jcdwanggongshijian != null" >
+        #{jcdwanggongshijian,jdbcType=DATE},
+      </if>
+      <if test="attribute166jcdjiesuanshijian != null" >
+        #{attribute166jcdjiesuanshijian,jdbcType=DATE},
+      </if>
+      <if test="jcdyujijine != null" >
+        #{jcdyujijine,jdbcType=INTEGER},
+      </if>
+      <if test="jcdfuwuguwen != null" >
+        #{jcdfuwuguwen,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdjiecheren != null" >
+        #{jcdjiecheren,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdwugongyuanyin != null" >
+        #{jcdwugongyuanyin,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdqualitypeople != null" >
+        #{jcdqualitypeople,jdbcType=VARCHAR},
+      </if>
+      <if test="jartisanno != null" >
+        #{jartisanno,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdpunishmentmoney != null" >
+        #{jcdpunishmentmoney,jdbcType=INTEGER},
+      </if>
+      <if test="jcdreworkcause != null" >
+        #{jcdreworkcause,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdreworknumber != null" >
+        #{jcdreworknumber,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Jiechedengji" >
+    update jiechedengji
+    <set >
+      <if test="cvdnumber != null" >
+        cvdnumber = #{cvdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="artisanno != null" >
+        artisanno = #{artisanno,jdbcType=VARCHAR},
+      </if>
+      <if test="danju != null" >
+        danju = #{danju,jdbcType=VARCHAR},
+      </if>
+      <if test="yewulx != null" >
+        yewulx = #{yewulx,jdbcType=VARCHAR},
+      </if>
+      <if test="jieclino != null" >
+        jieclino = #{jieclino,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdmaintainodd != null" >
+        jcdmaintainodd = #{jcdmaintainodd,jdbcType=VARCHAR},
+      </if>
+      <if test="jcddocumenttype != null" >
+        jcddocumenttype = #{jcddocumenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdbillingstate != null" >
+        jcdbillingstate = #{jcdbillingstate,jdbcType=DATE},
+      </if>
+      <if test="jcdyujiwanggongshijian != null" >
+        jcdyujiwanggongshijian = #{jcdyujiwanggongshijian,jdbcType=DATE},
+      </if>
+      <if test="jcdwanggongshijian != null" >
+        jcdwanggongshijian = #{jcdwanggongshijian,jdbcType=DATE},
+      </if>
+      <if test="attribute166jcdjiesuanshijian != null" >
+        Attribute_166jcdjiesuanshijian = #{attribute166jcdjiesuanshijian,jdbcType=DATE},
+      </if>
+      <if test="jcdyujijine != null" >
+        jcdyujijine = #{jcdyujijine,jdbcType=INTEGER},
+      </if>
+      <if test="jcdfuwuguwen != null" >
+        jcdfuwuguwen = #{jcdfuwuguwen,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdjiecheren != null" >
+        jcdjiecheren = #{jcdjiecheren,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdwugongyuanyin != null" >
+        jcdwugongyuanyin = #{jcdwugongyuanyin,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdqualitypeople != null" >
+        jcdqualitypeople = #{jcdqualitypeople,jdbcType=VARCHAR},
+      </if>
+      <if test="jartisanno != null" >
+        jartisanno = #{jartisanno,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdpunishmentmoney != null" >
+        jcdpunishmentmoney = #{jcdpunishmentmoney,jdbcType=INTEGER},
+      </if>
+      <if test="jcdreworkcause != null" >
+        jcdreworkcause = #{jcdreworkcause,jdbcType=VARCHAR},
+      </if>
+      <if test="jcdreworknumber != null" >
+        jcdreworknumber = #{jcdreworknumber,jdbcType=INTEGER},
+      </if>
+    </set>
+    where jiecvdnumber = #{jiecvdnumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Jiechedengji" >
+    update jiechedengji
+    set cvdnumber = #{cvdnumber,jdbcType=VARCHAR},
+      artisanno = #{artisanno,jdbcType=VARCHAR},
+      danju = #{danju,jdbcType=VARCHAR},
+      yewulx = #{yewulx,jdbcType=VARCHAR},
+      jieclino = #{jieclino,jdbcType=VARCHAR},
+      jcdmaintainodd = #{jcdmaintainodd,jdbcType=VARCHAR},
+      jcddocumenttype = #{jcddocumenttype,jdbcType=VARCHAR},
+      jcdbillingstate = #{jcdbillingstate,jdbcType=DATE},
+      jcdyujiwanggongshijian = #{jcdyujiwanggongshijian,jdbcType=DATE},
+      jcdwanggongshijian = #{jcdwanggongshijian,jdbcType=DATE},
+      Attribute_166jcdjiesuanshijian = #{attribute166jcdjiesuanshijian,jdbcType=DATE},
+      jcdyujijine = #{jcdyujijine,jdbcType=INTEGER},
+      jcdfuwuguwen = #{jcdfuwuguwen,jdbcType=VARCHAR},
+      jcdjiecheren = #{jcdjiecheren,jdbcType=VARCHAR},
+      jcdwugongyuanyin = #{jcdwugongyuanyin,jdbcType=VARCHAR},
+      jcdqualitypeople = #{jcdqualitypeople,jdbcType=VARCHAR},
+      jartisanno = #{jartisanno,jdbcType=VARCHAR},
+      jcdpunishmentmoney = #{jcdpunishmentmoney,jdbcType=INTEGER},
+      jcdreworkcause = #{jcdreworkcause,jdbcType=VARCHAR},
+      jcdreworknumber = #{jcdreworknumber,jdbcType=INTEGER}
+    where jiecvdnumber = #{jiecvdnumber,jdbcType=VARCHAR}
+  </update>
+</mapper>

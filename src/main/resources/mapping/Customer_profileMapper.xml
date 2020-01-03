@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.Customer_profileMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Customer_profile" >
+    <id column="cpno" property="cpno" jdbcType="VARCHAR" />
+    <result column="cpclienttype" property="cpclienttype" jdbcType="VARCHAR" />
+    <result column="cppricetype" property="cppricetype" jdbcType="VARCHAR" />
+    <result column="cpvalidity" property="cpvalidity" jdbcType="INTEGER" />
+    <result column="cpdues" property="cpdues" jdbcType="INTEGER" />
+    <result column="cptype" property="cptype" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cpno, cpclienttype, cppricetype, cpvalidity, cpdues, cptype
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from customer_profile
+    where cpno = #{cpno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from customer_profile
+    where cpno = #{cpno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Customer_profile" >
+    insert into customer_profile (cpno, cpclienttype, cppricetype, 
+      cpvalidity, cpdues, cptype
+      )
+    values (#{cpno,jdbcType=VARCHAR}, #{cpclienttype,jdbcType=VARCHAR}, #{cppricetype,jdbcType=VARCHAR}, 
+      #{cpvalidity,jdbcType=INTEGER}, #{cpdues,jdbcType=INTEGER}, #{cptype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Customer_profile" >
+    insert into customer_profile
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cpno != null" >
+        cpno,
+      </if>
+      <if test="cpclienttype != null" >
+        cpclienttype,
+      </if>
+      <if test="cppricetype != null" >
+        cppricetype,
+      </if>
+      <if test="cpvalidity != null" >
+        cpvalidity,
+      </if>
+      <if test="cpdues != null" >
+        cpdues,
+      </if>
+      <if test="cptype != null" >
+        cptype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cpno != null" >
+        #{cpno,jdbcType=VARCHAR},
+      </if>
+      <if test="cpclienttype != null" >
+        #{cpclienttype,jdbcType=VARCHAR},
+      </if>
+      <if test="cppricetype != null" >
+        #{cppricetype,jdbcType=VARCHAR},
+      </if>
+      <if test="cpvalidity != null" >
+        #{cpvalidity,jdbcType=INTEGER},
+      </if>
+      <if test="cpdues != null" >
+        #{cpdues,jdbcType=INTEGER},
+      </if>
+      <if test="cptype != null" >
+        #{cptype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Customer_profile" >
+    update customer_profile
+    <set >
+      <if test="cpclienttype != null" >
+        cpclienttype = #{cpclienttype,jdbcType=VARCHAR},
+      </if>
+      <if test="cppricetype != null" >
+        cppricetype = #{cppricetype,jdbcType=VARCHAR},
+      </if>
+      <if test="cpvalidity != null" >
+        cpvalidity = #{cpvalidity,jdbcType=INTEGER},
+      </if>
+      <if test="cpdues != null" >
+        cpdues = #{cpdues,jdbcType=INTEGER},
+      </if>
+      <if test="cptype != null" >
+        cptype = #{cptype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cpno = #{cpno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Customer_profile" >
+    update customer_profile
+    set cpclienttype = #{cpclienttype,jdbcType=VARCHAR},
+      cppricetype = #{cppricetype,jdbcType=VARCHAR},
+      cpvalidity = #{cpvalidity,jdbcType=INTEGER},
+      cpdues = #{cpdues,jdbcType=INTEGER},
+      cptype = #{cptype,jdbcType=VARCHAR}
+    where cpno = #{cpno,jdbcType=VARCHAR}
+  </update>
+</mapper>

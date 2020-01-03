@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.BrandMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Brand" >
+    <id column="brano" property="brano" jdbcType="VARCHAR" />
+    <result column="braname" property="braname" jdbcType="VARCHAR" />
+    <result column="brainitial" property="brainitial" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    brano, braname, brainitial
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from brand
+    where brano = #{brano,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from brand
+    where brano = #{brano,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Brand" >
+    insert into brand (brano, braname, brainitial
+      )
+    values (#{brano,jdbcType=VARCHAR}, #{braname,jdbcType=VARCHAR}, #{brainitial,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Brand" >
+    insert into brand
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="brano != null" >
+        brano,
+      </if>
+      <if test="braname != null" >
+        braname,
+      </if>
+      <if test="brainitial != null" >
+        brainitial,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="brano != null" >
+        #{brano,jdbcType=VARCHAR},
+      </if>
+      <if test="braname != null" >
+        #{braname,jdbcType=VARCHAR},
+      </if>
+      <if test="brainitial != null" >
+        #{brainitial,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Brand" >
+    update brand
+    <set >
+      <if test="braname != null" >
+        braname = #{braname,jdbcType=VARCHAR},
+      </if>
+      <if test="brainitial != null" >
+        brainitial = #{brainitial,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where brano = #{brano,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Brand" >
+    update brand
+    set braname = #{braname,jdbcType=VARCHAR},
+      brainitial = #{brainitial,jdbcType=VARCHAR}
+    where brano = #{brano,jdbcType=VARCHAR}
+  </update>
+</mapper>

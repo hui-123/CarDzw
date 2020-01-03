@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.Vendor_contactMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Vendor_contact" >
+    <id column="vcsupno" property="vcsupno" jdbcType="VARCHAR" />
+    <result column="vencontact" property="vencontact" jdbcType="VARCHAR" />
+    <result column="venpostion" property="venpostion" jdbcType="VARCHAR" />
+    <result column="venphone" property="venphone" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    vcsupno, vencontact, venpostion, venphone
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from vendor_contact
+    where vcsupno = #{vcsupno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from vendor_contact
+    where vcsupno = #{vcsupno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Vendor_contact" >
+    insert into vendor_contact (vcsupno, vencontact, venpostion, 
+      venphone)
+    values (#{vcsupno,jdbcType=VARCHAR}, #{vencontact,jdbcType=VARCHAR}, #{venpostion,jdbcType=VARCHAR}, 
+      #{venphone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Vendor_contact" >
+    insert into vendor_contact
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="vcsupno != null" >
+        vcsupno,
+      </if>
+      <if test="vencontact != null" >
+        vencontact,
+      </if>
+      <if test="venpostion != null" >
+        venpostion,
+      </if>
+      <if test="venphone != null" >
+        venphone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="vcsupno != null" >
+        #{vcsupno,jdbcType=VARCHAR},
+      </if>
+      <if test="vencontact != null" >
+        #{vencontact,jdbcType=VARCHAR},
+      </if>
+      <if test="venpostion != null" >
+        #{venpostion,jdbcType=VARCHAR},
+      </if>
+      <if test="venphone != null" >
+        #{venphone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Vendor_contact" >
+    update vendor_contact
+    <set >
+      <if test="vencontact != null" >
+        vencontact = #{vencontact,jdbcType=VARCHAR},
+      </if>
+      <if test="venpostion != null" >
+        venpostion = #{venpostion,jdbcType=VARCHAR},
+      </if>
+      <if test="venphone != null" >
+        venphone = #{venphone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where vcsupno = #{vcsupno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Vendor_contact" >
+    update vendor_contact
+    set vencontact = #{vencontact,jdbcType=VARCHAR},
+      venpostion = #{venpostion,jdbcType=VARCHAR},
+      venphone = #{venphone,jdbcType=VARCHAR}
+    where vcsupno = #{vcsupno,jdbcType=VARCHAR}
+  </update>
+</mapper>

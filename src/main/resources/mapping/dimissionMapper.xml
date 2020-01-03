@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.dimissionMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.dimission" >
+    <id column="dimno" property="dimno" jdbcType="VARCHAR" />
+    <result column="stano" property="stano" jdbcType="VARCHAR" />
+    <result column="dimcause" property="dimcause" jdbcType="VARCHAR" />
+    <result column="dimdate" property="dimdate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    dimno, stano, dimcause, dimdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from dimission
+    where dimno = #{dimno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from dimission
+    where dimno = #{dimno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.dimission" >
+    insert into dimission (dimno, stano, dimcause, 
+      dimdate)
+    values (#{dimno,jdbcType=VARCHAR}, #{stano,jdbcType=VARCHAR}, #{dimcause,jdbcType=VARCHAR}, 
+      #{dimdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.dimission" >
+    insert into dimission
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dimno != null" >
+        dimno,
+      </if>
+      <if test="stano != null" >
+        stano,
+      </if>
+      <if test="dimcause != null" >
+        dimcause,
+      </if>
+      <if test="dimdate != null" >
+        dimdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dimno != null" >
+        #{dimno,jdbcType=VARCHAR},
+      </if>
+      <if test="stano != null" >
+        #{stano,jdbcType=VARCHAR},
+      </if>
+      <if test="dimcause != null" >
+        #{dimcause,jdbcType=VARCHAR},
+      </if>
+      <if test="dimdate != null" >
+        #{dimdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.dimission" >
+    update dimission
+    <set >
+      <if test="stano != null" >
+        stano = #{stano,jdbcType=VARCHAR},
+      </if>
+      <if test="dimcause != null" >
+        dimcause = #{dimcause,jdbcType=VARCHAR},
+      </if>
+      <if test="dimdate != null" >
+        dimdate = #{dimdate,jdbcType=DATE},
+      </if>
+    </set>
+    where dimno = #{dimno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.dimission" >
+    update dimission
+    set stano = #{stano,jdbcType=VARCHAR},
+      dimcause = #{dimcause,jdbcType=VARCHAR},
+      dimdate = #{dimdate,jdbcType=DATE}
+    where dimno = #{dimno,jdbcType=VARCHAR}
+  </update>
+</mapper>

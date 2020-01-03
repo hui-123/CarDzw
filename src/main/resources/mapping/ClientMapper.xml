@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ClientMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Client" >
+    <id column="clino" property="clino" jdbcType="VARCHAR" />
+    <result column="setno" property="setno" jdbcType="VARCHAR" />
+    <result column="cvdnumber" property="cvdnumber" jdbcType="VARCHAR" />
+    <result column="stano" property="stano" jdbcType="VARCHAR" />
+    <result column="cliname" property="cliname" jdbcType="VARCHAR" />
+    <result column="clicontact" property="clicontact" jdbcType="INTEGER" />
+    <result column="cliphone" property="cliphone" jdbcType="VARCHAR" />
+    <result column="cliaddress" property="cliaddress" jdbcType="VARCHAR" />
+    <result column="clibirthday" property="clibirthday" jdbcType="DATE" />
+    <result column="clipaymentdays" property="clipaymentdays" jdbcType="INTEGER" />
+    <result column="cliguazhangyue" property="cliguazhangyue" jdbcType="INTEGER" />
+    <result column="clizhuanshuguwen" property="clizhuanshuguwen" jdbcType="INTEGER" />
+    <result column="guwendianhua" property="guwendianhua" jdbcType="INTEGER" />
+    <result column="cliremark" property="cliremark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    clino, setno, cvdnumber, stano, cliname, clicontact, cliphone, cliaddress, clibirthday, 
+    clipaymentdays, cliguazhangyue, clizhuanshuguwen, guwendianhua, cliremark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from client
+    where clino = #{clino,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from client
+    where clino = #{clino,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Client" >
+    insert into client (clino, setno, cvdnumber, 
+      stano, cliname, clicontact, 
+      cliphone, cliaddress, clibirthday, 
+      clipaymentdays, cliguazhangyue, clizhuanshuguwen, 
+      guwendianhua, cliremark)
+    values (#{clino,jdbcType=VARCHAR}, #{setno,jdbcType=VARCHAR}, #{cvdnumber,jdbcType=VARCHAR}, 
+      #{stano,jdbcType=VARCHAR}, #{cliname,jdbcType=VARCHAR}, #{clicontact,jdbcType=INTEGER}, 
+      #{cliphone,jdbcType=VARCHAR}, #{cliaddress,jdbcType=VARCHAR}, #{clibirthday,jdbcType=DATE}, 
+      #{clipaymentdays,jdbcType=INTEGER}, #{cliguazhangyue,jdbcType=INTEGER}, #{clizhuanshuguwen,jdbcType=INTEGER}, 
+      #{guwendianhua,jdbcType=INTEGER}, #{cliremark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Client" >
+    insert into client
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="clino != null" >
+        clino,
+      </if>
+      <if test="setno != null" >
+        setno,
+      </if>
+      <if test="cvdnumber != null" >
+        cvdnumber,
+      </if>
+      <if test="stano != null" >
+        stano,
+      </if>
+      <if test="cliname != null" >
+        cliname,
+      </if>
+      <if test="clicontact != null" >
+        clicontact,
+      </if>
+      <if test="cliphone != null" >
+        cliphone,
+      </if>
+      <if test="cliaddress != null" >
+        cliaddress,
+      </if>
+      <if test="clibirthday != null" >
+        clibirthday,
+      </if>
+      <if test="clipaymentdays != null" >
+        clipaymentdays,
+      </if>
+      <if test="cliguazhangyue != null" >
+        cliguazhangyue,
+      </if>
+      <if test="clizhuanshuguwen != null" >
+        clizhuanshuguwen,
+      </if>
+      <if test="guwendianhua != null" >
+        guwendianhua,
+      </if>
+      <if test="cliremark != null" >
+        cliremark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="clino != null" >
+        #{clino,jdbcType=VARCHAR},
+      </if>
+      <if test="setno != null" >
+        #{setno,jdbcType=VARCHAR},
+      </if>
+      <if test="cvdnumber != null" >
+        #{cvdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="stano != null" >
+        #{stano,jdbcType=VARCHAR},
+      </if>
+      <if test="cliname != null" >
+        #{cliname,jdbcType=VARCHAR},
+      </if>
+      <if test="clicontact != null" >
+        #{clicontact,jdbcType=INTEGER},
+      </if>
+      <if test="cliphone != null" >
+        #{cliphone,jdbcType=VARCHAR},
+      </if>
+      <if test="cliaddress != null" >
+        #{cliaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="clibirthday != null" >
+        #{clibirthday,jdbcType=DATE},
+      </if>
+      <if test="clipaymentdays != null" >
+        #{clipaymentdays,jdbcType=INTEGER},
+      </if>
+      <if test="cliguazhangyue != null" >
+        #{cliguazhangyue,jdbcType=INTEGER},
+      </if>
+      <if test="clizhuanshuguwen != null" >
+        #{clizhuanshuguwen,jdbcType=INTEGER},
+      </if>
+      <if test="guwendianhua != null" >
+        #{guwendianhua,jdbcType=INTEGER},
+      </if>
+      <if test="cliremark != null" >
+        #{cliremark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Client" >
+    update client
+    <set >
+      <if test="setno != null" >
+        setno = #{setno,jdbcType=VARCHAR},
+      </if>
+      <if test="cvdnumber != null" >
+        cvdnumber = #{cvdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="stano != null" >
+        stano = #{stano,jdbcType=VARCHAR},
+      </if>
+      <if test="cliname != null" >
+        cliname = #{cliname,jdbcType=VARCHAR},
+      </if>
+      <if test="clicontact != null" >
+        clicontact = #{clicontact,jdbcType=INTEGER},
+      </if>
+      <if test="cliphone != null" >
+        cliphone = #{cliphone,jdbcType=VARCHAR},
+      </if>
+      <if test="cliaddress != null" >
+        cliaddress = #{cliaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="clibirthday != null" >
+        clibirthday = #{clibirthday,jdbcType=DATE},
+      </if>
+      <if test="clipaymentdays != null" >
+        clipaymentdays = #{clipaymentdays,jdbcType=INTEGER},
+      </if>
+      <if test="cliguazhangyue != null" >
+        cliguazhangyue = #{cliguazhangyue,jdbcType=INTEGER},
+      </if>
+      <if test="clizhuanshuguwen != null" >
+        clizhuanshuguwen = #{clizhuanshuguwen,jdbcType=INTEGER},
+      </if>
+      <if test="guwendianhua != null" >
+        guwendianhua = #{guwendianhua,jdbcType=INTEGER},
+      </if>
+      <if test="cliremark != null" >
+        cliremark = #{cliremark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where clino = #{clino,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Client" >
+    update client
+    set setno = #{setno,jdbcType=VARCHAR},
+      cvdnumber = #{cvdnumber,jdbcType=VARCHAR},
+      stano = #{stano,jdbcType=VARCHAR},
+      cliname = #{cliname,jdbcType=VARCHAR},
+      clicontact = #{clicontact,jdbcType=INTEGER},
+      cliphone = #{cliphone,jdbcType=VARCHAR},
+      cliaddress = #{cliaddress,jdbcType=VARCHAR},
+      clibirthday = #{clibirthday,jdbcType=DATE},
+      clipaymentdays = #{clipaymentdays,jdbcType=INTEGER},
+      cliguazhangyue = #{cliguazhangyue,jdbcType=INTEGER},
+      clizhuanshuguwen = #{clizhuanshuguwen,jdbcType=INTEGER},
+      guwendianhua = #{guwendianhua,jdbcType=INTEGER},
+      cliremark = #{cliremark,jdbcType=VARCHAR}
+    where clino = #{clino,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.Team_staffMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Team_staff" >
+    <id column="artisanno" property="artisanno" jdbcType="VARCHAR" />
+    <result column="starsno" property="starsno" jdbcType="INTEGER" />
+    <result column="jiecvdnumber" property="jiecvdnumber" jdbcType="VARCHAR" />
+    <result column="artisanname" property="artisanname" jdbcType="VARCHAR" />
+    <result column="artisansex" property="artisansex" jdbcType="VARCHAR" />
+    <result column="teamartisanteam" property="teamartisanteam" jdbcType="VARCHAR" />
+    <result column="artisanphone" property="artisanphone" jdbcType="VARCHAR" />
+    <result column="tsstarsno" property="tsstarsno" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    artisanno, starsno, jiecvdnumber, artisanname, artisansex, teamartisanteam, artisanphone, 
+    tsstarsno
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from team_staff
+    where artisanno = #{artisanno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from team_staff
+    where artisanno = #{artisanno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Team_staff" >
+    insert into team_staff (artisanno, starsno, jiecvdnumber, 
+      artisanname, artisansex, teamartisanteam, 
+      artisanphone, tsstarsno)
+    values (#{artisanno,jdbcType=VARCHAR}, #{starsno,jdbcType=INTEGER}, #{jiecvdnumber,jdbcType=VARCHAR}, 
+      #{artisanname,jdbcType=VARCHAR}, #{artisansex,jdbcType=VARCHAR}, #{teamartisanteam,jdbcType=VARCHAR}, 
+      #{artisanphone,jdbcType=VARCHAR}, #{tsstarsno,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Team_staff" >
+    insert into team_staff
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="artisanno != null" >
+        artisanno,
+      </if>
+      <if test="starsno != null" >
+        starsno,
+      </if>
+      <if test="jiecvdnumber != null" >
+        jiecvdnumber,
+      </if>
+      <if test="artisanname != null" >
+        artisanname,
+      </if>
+      <if test="artisansex != null" >
+        artisansex,
+      </if>
+      <if test="teamartisanteam != null" >
+        teamartisanteam,
+      </if>
+      <if test="artisanphone != null" >
+        artisanphone,
+      </if>
+      <if test="tsstarsno != null" >
+        tsstarsno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="artisanno != null" >
+        #{artisanno,jdbcType=VARCHAR},
+      </if>
+      <if test="starsno != null" >
+        #{starsno,jdbcType=INTEGER},
+      </if>
+      <if test="jiecvdnumber != null" >
+        #{jiecvdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="artisanname != null" >
+        #{artisanname,jdbcType=VARCHAR},
+      </if>
+      <if test="artisansex != null" >
+        #{artisansex,jdbcType=VARCHAR},
+      </if>
+      <if test="teamartisanteam != null" >
+        #{teamartisanteam,jdbcType=VARCHAR},
+      </if>
+      <if test="artisanphone != null" >
+        #{artisanphone,jdbcType=VARCHAR},
+      </if>
+      <if test="tsstarsno != null" >
+        #{tsstarsno,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Team_staff" >
+    update team_staff
+    <set >
+      <if test="starsno != null" >
+        starsno = #{starsno,jdbcType=INTEGER},
+      </if>
+      <if test="jiecvdnumber != null" >
+        jiecvdnumber = #{jiecvdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="artisanname != null" >
+        artisanname = #{artisanname,jdbcType=VARCHAR},
+      </if>
+      <if test="artisansex != null" >
+        artisansex = #{artisansex,jdbcType=VARCHAR},
+      </if>
+      <if test="teamartisanteam != null" >
+        teamartisanteam = #{teamartisanteam,jdbcType=VARCHAR},
+      </if>
+      <if test="artisanphone != null" >
+        artisanphone = #{artisanphone,jdbcType=VARCHAR},
+      </if>
+      <if test="tsstarsno != null" >
+        tsstarsno = #{tsstarsno,jdbcType=INTEGER},
+      </if>
+    </set>
+    where artisanno = #{artisanno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Team_staff" >
+    update team_staff
+    set starsno = #{starsno,jdbcType=INTEGER},
+      jiecvdnumber = #{jiecvdnumber,jdbcType=VARCHAR},
+      artisanname = #{artisanname,jdbcType=VARCHAR},
+      artisansex = #{artisansex,jdbcType=VARCHAR},
+      teamartisanteam = #{teamartisanteam,jdbcType=VARCHAR},
+      artisanphone = #{artisanphone,jdbcType=VARCHAR},
+      tsstarsno = #{tsstarsno,jdbcType=INTEGER}
+    where artisanno = #{artisanno,jdbcType=VARCHAR}
+  </update>
+</mapper>

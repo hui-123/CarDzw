@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.SupplierMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Supplier" >
+    <id column="supno" property="supno" jdbcType="VARCHAR" />
+    <result column="vcsupno" property="vcsupno" jdbcType="VARCHAR" />
+    <result column="supname" property="supname" jdbcType="VARCHAR" />
+    <result column="supaddress" property="supaddress" jdbcType="VARCHAR" />
+    <result column="supphone" property="supphone" jdbcType="INTEGER" />
+    <result column="supremark" property="supremark" jdbcType="VARCHAR" />
+    <result column="supclass" property="supclass" jdbcType="VARCHAR" />
+    <result column="suppaymentway" property="suppaymentway" jdbcType="VARCHAR" />
+    <result column="supurl" property="supurl" jdbcType="VARCHAR" />
+    <result column="suprunbrand" property="suprunbrand" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    supno, vcsupno, supname, supaddress, supphone, supremark, supclass, suppaymentway, 
+    supurl, suprunbrand
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from supplier
+    where supno = #{supno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from supplier
+    where supno = #{supno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Supplier" >
+    insert into supplier (supno, vcsupno, supname, 
+      supaddress, supphone, supremark, 
+      supclass, suppaymentway, supurl, 
+      suprunbrand)
+    values (#{supno,jdbcType=VARCHAR}, #{vcsupno,jdbcType=VARCHAR}, #{supname,jdbcType=VARCHAR}, 
+      #{supaddress,jdbcType=VARCHAR}, #{supphone,jdbcType=INTEGER}, #{supremark,jdbcType=VARCHAR}, 
+      #{supclass,jdbcType=VARCHAR}, #{suppaymentway,jdbcType=VARCHAR}, #{supurl,jdbcType=VARCHAR}, 
+      #{suprunbrand,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Supplier" >
+    insert into supplier
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="supno != null" >
+        supno,
+      </if>
+      <if test="vcsupno != null" >
+        vcsupno,
+      </if>
+      <if test="supname != null" >
+        supname,
+      </if>
+      <if test="supaddress != null" >
+        supaddress,
+      </if>
+      <if test="supphone != null" >
+        supphone,
+      </if>
+      <if test="supremark != null" >
+        supremark,
+      </if>
+      <if test="supclass != null" >
+        supclass,
+      </if>
+      <if test="suppaymentway != null" >
+        suppaymentway,
+      </if>
+      <if test="supurl != null" >
+        supurl,
+      </if>
+      <if test="suprunbrand != null" >
+        suprunbrand,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="supno != null" >
+        #{supno,jdbcType=VARCHAR},
+      </if>
+      <if test="vcsupno != null" >
+        #{vcsupno,jdbcType=VARCHAR},
+      </if>
+      <if test="supname != null" >
+        #{supname,jdbcType=VARCHAR},
+      </if>
+      <if test="supaddress != null" >
+        #{supaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="supphone != null" >
+        #{supphone,jdbcType=INTEGER},
+      </if>
+      <if test="supremark != null" >
+        #{supremark,jdbcType=VARCHAR},
+      </if>
+      <if test="supclass != null" >
+        #{supclass,jdbcType=VARCHAR},
+      </if>
+      <if test="suppaymentway != null" >
+        #{suppaymentway,jdbcType=VARCHAR},
+      </if>
+      <if test="supurl != null" >
+        #{supurl,jdbcType=VARCHAR},
+      </if>
+      <if test="suprunbrand != null" >
+        #{suprunbrand,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Supplier" >
+    update supplier
+    <set >
+      <if test="vcsupno != null" >
+        vcsupno = #{vcsupno,jdbcType=VARCHAR},
+      </if>
+      <if test="supname != null" >
+        supname = #{supname,jdbcType=VARCHAR},
+      </if>
+      <if test="supaddress != null" >
+        supaddress = #{supaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="supphone != null" >
+        supphone = #{supphone,jdbcType=INTEGER},
+      </if>
+      <if test="supremark != null" >
+        supremark = #{supremark,jdbcType=VARCHAR},
+      </if>
+      <if test="supclass != null" >
+        supclass = #{supclass,jdbcType=VARCHAR},
+      </if>
+      <if test="suppaymentway != null" >
+        suppaymentway = #{suppaymentway,jdbcType=VARCHAR},
+      </if>
+      <if test="supurl != null" >
+        supurl = #{supurl,jdbcType=VARCHAR},
+      </if>
+      <if test="suprunbrand != null" >
+        suprunbrand = #{suprunbrand,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where supno = #{supno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Supplier" >
+    update supplier
+    set vcsupno = #{vcsupno,jdbcType=VARCHAR},
+      supname = #{supname,jdbcType=VARCHAR},
+      supaddress = #{supaddress,jdbcType=VARCHAR},
+      supphone = #{supphone,jdbcType=INTEGER},
+      supremark = #{supremark,jdbcType=VARCHAR},
+      supclass = #{supclass,jdbcType=VARCHAR},
+      suppaymentway = #{suppaymentway,jdbcType=VARCHAR},
+      supurl = #{supurl,jdbcType=VARCHAR},
+      suprunbrand = #{suprunbrand,jdbcType=VARCHAR}
+    where supno = #{supno,jdbcType=VARCHAR}
+  </update>
+</mapper>

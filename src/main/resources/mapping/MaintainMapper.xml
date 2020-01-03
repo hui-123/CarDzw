@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.MaintainMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Maintain" >
+    <id column="ciecvdnumber" property="ciecvdnumber" jdbcType="VARCHAR" />
+    <result column="cvdnumber" property="cvdnumber" jdbcType="VARCHAR" />
+    <result column="mainame" property="mainame" jdbcType="VARCHAR" />
+    <result column="maiintendeddate" property="maiintendeddate" jdbcType="DATE" />
+    <result column="maiintendedmileage" property="maiintendedmileage" jdbcType="INTEGER" />
+    <result column="maipracticaldate" property="maipracticaldate" jdbcType="DATE" />
+    <result column="maipracticalmileage" property="maipracticalmileage" jdbcType="INTEGER" />
+    <result column="mairemark" property="mairemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ciecvdnumber, cvdnumber, mainame, maiintendeddate, maiintendedmileage, maipracticaldate, 
+    maipracticalmileage, mairemark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from maintain
+    where ciecvdnumber = #{ciecvdnumber,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from maintain
+    where ciecvdnumber = #{ciecvdnumber,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Maintain" >
+    insert into maintain (ciecvdnumber, cvdnumber, mainame, 
+      maiintendeddate, maiintendedmileage, maipracticaldate, 
+      maipracticalmileage, mairemark)
+    values (#{ciecvdnumber,jdbcType=VARCHAR}, #{cvdnumber,jdbcType=VARCHAR}, #{mainame,jdbcType=VARCHAR}, 
+      #{maiintendeddate,jdbcType=DATE}, #{maiintendedmileage,jdbcType=INTEGER}, #{maipracticaldate,jdbcType=DATE}, 
+      #{maipracticalmileage,jdbcType=INTEGER}, #{mairemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Maintain" >
+    insert into maintain
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ciecvdnumber != null" >
+        ciecvdnumber,
+      </if>
+      <if test="cvdnumber != null" >
+        cvdnumber,
+      </if>
+      <if test="mainame != null" >
+        mainame,
+      </if>
+      <if test="maiintendeddate != null" >
+        maiintendeddate,
+      </if>
+      <if test="maiintendedmileage != null" >
+        maiintendedmileage,
+      </if>
+      <if test="maipracticaldate != null" >
+        maipracticaldate,
+      </if>
+      <if test="maipracticalmileage != null" >
+        maipracticalmileage,
+      </if>
+      <if test="mairemark != null" >
+        mairemark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ciecvdnumber != null" >
+        #{ciecvdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cvdnumber != null" >
+        #{cvdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="mainame != null" >
+        #{mainame,jdbcType=VARCHAR},
+      </if>
+      <if test="maiintendeddate != null" >
+        #{maiintendeddate,jdbcType=DATE},
+      </if>
+      <if test="maiintendedmileage != null" >
+        #{maiintendedmileage,jdbcType=INTEGER},
+      </if>
+      <if test="maipracticaldate != null" >
+        #{maipracticaldate,jdbcType=DATE},
+      </if>
+      <if test="maipracticalmileage != null" >
+        #{maipracticalmileage,jdbcType=INTEGER},
+      </if>
+      <if test="mairemark != null" >
+        #{mairemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Maintain" >
+    update maintain
+    <set >
+      <if test="cvdnumber != null" >
+        cvdnumber = #{cvdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="mainame != null" >
+        mainame = #{mainame,jdbcType=VARCHAR},
+      </if>
+      <if test="maiintendeddate != null" >
+        maiintendeddate = #{maiintendeddate,jdbcType=DATE},
+      </if>
+      <if test="maiintendedmileage != null" >
+        maiintendedmileage = #{maiintendedmileage,jdbcType=INTEGER},
+      </if>
+      <if test="maipracticaldate != null" >
+        maipracticaldate = #{maipracticaldate,jdbcType=DATE},
+      </if>
+      <if test="maipracticalmileage != null" >
+        maipracticalmileage = #{maipracticalmileage,jdbcType=INTEGER},
+      </if>
+      <if test="mairemark != null" >
+        mairemark = #{mairemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ciecvdnumber = #{ciecvdnumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Maintain" >
+    update maintain
+    set cvdnumber = #{cvdnumber,jdbcType=VARCHAR},
+      mainame = #{mainame,jdbcType=VARCHAR},
+      maiintendeddate = #{maiintendeddate,jdbcType=DATE},
+      maiintendedmileage = #{maiintendedmileage,jdbcType=INTEGER},
+      maipracticaldate = #{maipracticaldate,jdbcType=DATE},
+      maipracticalmileage = #{maipracticalmileage,jdbcType=INTEGER},
+      mairemark = #{mairemark,jdbcType=VARCHAR}
+    where ciecvdnumber = #{ciecvdnumber,jdbcType=VARCHAR}
+  </update>
+</mapper>

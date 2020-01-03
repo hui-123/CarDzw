@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.Maintain_projectMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Maintain_project" >
+    <id column="mpno" property="mpno" jdbcType="VARCHAR" />
+    <result column="teano" property="teano" jdbcType="INTEGER" />
+    <result column="serno" property="serno" jdbcType="VARCHAR" />
+    <result column="mpnumber" property="mpnumber" jdbcType="INTEGER" />
+    <result column="mppriceclass" property="mppriceclass" jdbcType="INTEGER" />
+    <result column="mpyouhuiqiandanjia" property="mpyouhuiqiandanjia" jdbcType="INTEGER" />
+    <result column="mpyouhuihoudanjia" property="mpyouhuihoudanjia" jdbcType="INTEGER" />
+    <result column="mpyouhuihoujine" property="mpyouhuihoujine" jdbcType="INTEGER" />
+    <result column="mpguzhangmiaoshu" property="mpguzhangmiaoshu" jdbcType="VARCHAR" />
+    <result column="mpteano" property="mpteano" jdbcType="VARCHAR" />
+    <result column="mpworkordermark" property="mpworkordermark" jdbcType="VARCHAR" />
+    <result column="mpmiandanyuanyin" property="mpmiandanyuanyin" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    mpno, teano, serno, mpnumber, mppriceclass, mpyouhuiqiandanjia, mpyouhuihoudanjia, 
+    mpyouhuihoujine, mpguzhangmiaoshu, mpteano, mpworkordermark, mpmiandanyuanyin
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from maintain_project
+    where mpno = #{mpno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from maintain_project
+    where mpno = #{mpno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Maintain_project" >
+    insert into maintain_project (mpno, teano, serno, 
+      mpnumber, mppriceclass, mpyouhuiqiandanjia, 
+      mpyouhuihoudanjia, mpyouhuihoujine, mpguzhangmiaoshu, 
+      mpteano, mpworkordermark, mpmiandanyuanyin
+      )
+    values (#{mpno,jdbcType=VARCHAR}, #{teano,jdbcType=INTEGER}, #{serno,jdbcType=VARCHAR}, 
+      #{mpnumber,jdbcType=INTEGER}, #{mppriceclass,jdbcType=INTEGER}, #{mpyouhuiqiandanjia,jdbcType=INTEGER}, 
+      #{mpyouhuihoudanjia,jdbcType=INTEGER}, #{mpyouhuihoujine,jdbcType=INTEGER}, #{mpguzhangmiaoshu,jdbcType=VARCHAR}, 
+      #{mpteano,jdbcType=VARCHAR}, #{mpworkordermark,jdbcType=VARCHAR}, #{mpmiandanyuanyin,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Maintain_project" >
+    insert into maintain_project
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mpno != null" >
+        mpno,
+      </if>
+      <if test="teano != null" >
+        teano,
+      </if>
+      <if test="serno != null" >
+        serno,
+      </if>
+      <if test="mpnumber != null" >
+        mpnumber,
+      </if>
+      <if test="mppriceclass != null" >
+        mppriceclass,
+      </if>
+      <if test="mpyouhuiqiandanjia != null" >
+        mpyouhuiqiandanjia,
+      </if>
+      <if test="mpyouhuihoudanjia != null" >
+        mpyouhuihoudanjia,
+      </if>
+      <if test="mpyouhuihoujine != null" >
+        mpyouhuihoujine,
+      </if>
+      <if test="mpguzhangmiaoshu != null" >
+        mpguzhangmiaoshu,
+      </if>
+      <if test="mpteano != null" >
+        mpteano,
+      </if>
+      <if test="mpworkordermark != null" >
+        mpworkordermark,
+      </if>
+      <if test="mpmiandanyuanyin != null" >
+        mpmiandanyuanyin,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mpno != null" >
+        #{mpno,jdbcType=VARCHAR},
+      </if>
+      <if test="teano != null" >
+        #{teano,jdbcType=INTEGER},
+      </if>
+      <if test="serno != null" >
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="mpnumber != null" >
+        #{mpnumber,jdbcType=INTEGER},
+      </if>
+      <if test="mppriceclass != null" >
+        #{mppriceclass,jdbcType=INTEGER},
+      </if>
+      <if test="mpyouhuiqiandanjia != null" >
+        #{mpyouhuiqiandanjia,jdbcType=INTEGER},
+      </if>
+      <if test="mpyouhuihoudanjia != null" >
+        #{mpyouhuihoudanjia,jdbcType=INTEGER},
+      </if>
+      <if test="mpyouhuihoujine != null" >
+        #{mpyouhuihoujine,jdbcType=INTEGER},
+      </if>
+      <if test="mpguzhangmiaoshu != null" >
+        #{mpguzhangmiaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="mpteano != null" >
+        #{mpteano,jdbcType=VARCHAR},
+      </if>
+      <if test="mpworkordermark != null" >
+        #{mpworkordermark,jdbcType=VARCHAR},
+      </if>
+      <if test="mpmiandanyuanyin != null" >
+        #{mpmiandanyuanyin,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Maintain_project" >
+    update maintain_project
+    <set >
+      <if test="teano != null" >
+        teano = #{teano,jdbcType=INTEGER},
+      </if>
+      <if test="serno != null" >
+        serno = #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="mpnumber != null" >
+        mpnumber = #{mpnumber,jdbcType=INTEGER},
+      </if>
+      <if test="mppriceclass != null" >
+        mppriceclass = #{mppriceclass,jdbcType=INTEGER},
+      </if>
+      <if test="mpyouhuiqiandanjia != null" >
+        mpyouhuiqiandanjia = #{mpyouhuiqiandanjia,jdbcType=INTEGER},
+      </if>
+      <if test="mpyouhuihoudanjia != null" >
+        mpyouhuihoudanjia = #{mpyouhuihoudanjia,jdbcType=INTEGER},
+      </if>
+      <if test="mpyouhuihoujine != null" >
+        mpyouhuihoujine = #{mpyouhuihoujine,jdbcType=INTEGER},
+      </if>
+      <if test="mpguzhangmiaoshu != null" >
+        mpguzhangmiaoshu = #{mpguzhangmiaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="mpteano != null" >
+        mpteano = #{mpteano,jdbcType=VARCHAR},
+      </if>
+      <if test="mpworkordermark != null" >
+        mpworkordermark = #{mpworkordermark,jdbcType=VARCHAR},
+      </if>
+      <if test="mpmiandanyuanyin != null" >
+        mpmiandanyuanyin = #{mpmiandanyuanyin,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where mpno = #{mpno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Maintain_project" >
+    update maintain_project
+    set teano = #{teano,jdbcType=INTEGER},
+      serno = #{serno,jdbcType=VARCHAR},
+      mpnumber = #{mpnumber,jdbcType=INTEGER},
+      mppriceclass = #{mppriceclass,jdbcType=INTEGER},
+      mpyouhuiqiandanjia = #{mpyouhuiqiandanjia,jdbcType=INTEGER},
+      mpyouhuihoudanjia = #{mpyouhuihoudanjia,jdbcType=INTEGER},
+      mpyouhuihoujine = #{mpyouhuihoujine,jdbcType=INTEGER},
+      mpguzhangmiaoshu = #{mpguzhangmiaoshu,jdbcType=VARCHAR},
+      mpteano = #{mpteano,jdbcType=VARCHAR},
+      mpworkordermark = #{mpworkordermark,jdbcType=VARCHAR},
+      mpmiandanyuanyin = #{mpmiandanyuanyin,jdbcType=VARCHAR}
+    where mpno = #{mpno,jdbcType=VARCHAR}
+  </update>
+</mapper>

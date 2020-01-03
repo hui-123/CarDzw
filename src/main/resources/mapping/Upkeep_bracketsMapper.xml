@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.Upkeep_bracketsMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Upkeep_brackets" >
+    <id column="upkno" property="upkno" jdbcType="INTEGER" />
+    <result column="incno" property="incno" jdbcType="INTEGER" />
+    <result column="upktypeno" property="upktypeno" jdbcType="INTEGER" />
+    <result column="upktypeclassify" property="upktypeclassify" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    upkno, incno, upktypeno, upktypeclassify
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from upkeep_brackets
+    where upkno = #{upkno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from upkeep_brackets
+    where upkno = #{upkno,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Upkeep_brackets" >
+    insert into upkeep_brackets (upkno, incno, upktypeno, 
+      upktypeclassify)
+    values (#{upkno,jdbcType=INTEGER}, #{incno,jdbcType=INTEGER}, #{upktypeno,jdbcType=INTEGER}, 
+      #{upktypeclassify,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Upkeep_brackets" >
+    insert into upkeep_brackets
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="upkno != null" >
+        upkno,
+      </if>
+      <if test="incno != null" >
+        incno,
+      </if>
+      <if test="upktypeno != null" >
+        upktypeno,
+      </if>
+      <if test="upktypeclassify != null" >
+        upktypeclassify,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="upkno != null" >
+        #{upkno,jdbcType=INTEGER},
+      </if>
+      <if test="incno != null" >
+        #{incno,jdbcType=INTEGER},
+      </if>
+      <if test="upktypeno != null" >
+        #{upktypeno,jdbcType=INTEGER},
+      </if>
+      <if test="upktypeclassify != null" >
+        #{upktypeclassify,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Upkeep_brackets" >
+    update upkeep_brackets
+    <set >
+      <if test="incno != null" >
+        incno = #{incno,jdbcType=INTEGER},
+      </if>
+      <if test="upktypeno != null" >
+        upktypeno = #{upktypeno,jdbcType=INTEGER},
+      </if>
+      <if test="upktypeclassify != null" >
+        upktypeclassify = #{upktypeclassify,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where upkno = #{upkno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Upkeep_brackets" >
+    update upkeep_brackets
+    set incno = #{incno,jdbcType=INTEGER},
+      upktypeno = #{upktypeno,jdbcType=INTEGER},
+      upktypeclassify = #{upktypeclassify,jdbcType=VARCHAR}
+    where upkno = #{upkno,jdbcType=INTEGER}
+  </update>
+</mapper>
