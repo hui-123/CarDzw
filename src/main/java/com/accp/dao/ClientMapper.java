@@ -1,6 +1,12 @@
 package com.accp.dao;
 
+import java.util.List;
+
+/*
+ * 客户表
+ * */
 import com.accp.pojo.Client;
+
 
 public interface ClientMapper {
     int deleteByPrimaryKey(String clino);
@@ -14,4 +20,6 @@ public interface ClientMapper {
     int updateByPrimaryKeySelective(Client record);
 
     int updateByPrimaryKey(Client record);
+    
+    public List<Client> findListKehu();
 }
