@@ -31,8 +31,19 @@
     select 
     <include refid="Base_Column_List" />
     from staff
-    where stano = #{stano,jdbcType=VARCHAR}
+    where stano like #{stano,jdbcType=VARCHAR} or staname like #{stano,jdbcType=VARCHAR}
   </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from staff
+  </select>
+  <select id="selectCount" resultType="java.lang.Integer" >
+    select 
+    count(*)
+    from staff
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from staff
     where stano = #{stano,jdbcType=VARCHAR}

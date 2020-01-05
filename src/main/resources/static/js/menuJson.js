@@ -1,0 +1,56 @@
+/*leftNav_id不可重复、以下属性名不可更改，否则页面要进行相应调整*/
+var leftNav = [{
+	"text": "员工资料",
+	"leftNav_id": "1",
+	"name": "教师管理",
+	"typename": "人事",
+	"href": "html/employees.html"
+}, {
+	"text": "员工资料",
+	"leftNav_id": "2",
+	"name": "岗位定义",
+	"typename": "人事",
+	"href": "html/employees.html"
+}, {
+	"text": "员工资料",
+	"leftNav_id": "3",
+	"name": "离职登记",
+	"typename": "人事",
+	"href": "html/employees.html"
+}, {
+	"text": "员工资料",
+	"leftNav_id": "4",
+	"name": "通讯名录",
+	"typename": "人事",
+	"href": "html/employees.html"
+}, {
+	"text": "技工管理",
+	"leftNav_id": "5",
+	"name": "技工星级",
+	"typename": "人事",
+	"href": "html/employees.html"
+}, {
+	"text": "技工管理",
+	"leftNav_id": "6",
+	"name": "班组技工",
+	"typename": "人事",
+	"href": "html/employees.html"
+}, {
+	"text": "技工管理",
+	"leftNav_id": "7",
+	"name": "外勤车俩",
+	"typename": "人事",
+	"href": "html/employees.html"
+}, {
+	"text": "权限控制",
+	"leftNav_id": "8",
+	"name": "权限控制",
+	"typename": "系统",
+	"href": "html/employees.html"
+}, {
+	"text": "权限控制",
+	"leftNav_id": "9",
+	"name": "员工权限控制",
+	"typename": "系统",
+	"href": "html/employees.html"
+}]
