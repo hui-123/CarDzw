@@ -21,4 +21,6 @@ public class KeHuAction {
 		
 		return khBiz.findListKehu();
 	}
+	
+	
 }
