@@ -21,7 +21,7 @@ public class Staff {
 
     private String stashop;
 
-    private Integer stadepartment;
+    private Department stadepartment;
 
     private String staproperty;
 
@@ -113,11 +113,11 @@ public class Staff {
         this.stashop = stashop == null ? null : stashop.trim();
     }
 
-    public Integer getStadepartment() {
+    public Department getStadepartment() {
         return stadepartment;
     }
 
-    public void setStadepartment(Integer stadepartment) {
+    public void setStadepartment(Department stadepartment) {
         this.stadepartment = stadepartment;
     }
 

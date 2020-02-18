@@ -17,6 +17,8 @@ public interface StaffMapper {
     
     List<Staff> selectAll();
     
+    Staff selectOne(String stano);
+    
     int selectCount();
     
     int updateByPrimaryKeySelective(Staff record);

@@ -11,7 +11,6 @@
     <result column="stasex" property="stasex" jdbcType="VARCHAR" />
     <result column="stapicture" property="stapicture" jdbcType="VARCHAR" />
     <result column="stashop" property="stashop" jdbcType="VARCHAR" />
-    <result column="stadepartment" property="stadepartment" jdbcType="INTEGER" />
     <result column="staproperty" property="staproperty" jdbcType="VARCHAR" />
     <result column="staaddress" property="staaddress" jdbcType="VARCHAR" />
     <result column="staphone" property="staphone" jdbcType="VARCHAR" />
@@ -21,17 +20,30 @@
     <result column="stacontractstart" property="stacontractstart" jdbcType="DATE" />
     <result column="stacontractover" property="stacontractover" jdbcType="DATE" />
     <result column="stausername" property="stausername" jdbcType="VARCHAR" />
+    <association column="stadepartment" property="stadepartment" select="selectDepar"></association>
   </resultMap>
   <sql id="Base_Column_List" >
     stano, dimno, posno, username, depno, staname, stasex, stapicture, stashop, stadepartment, 
     staproperty, staaddress, staphone, staentrydate, stausedate, stabirthdate, stacontractstart, 
     stacontractover, stausername
   </sql>
+  <select id="selectDepar" resultType="com.accp.pojo.Department" >
+    select 
+    *
+    from department
+    where depno = #{0}
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from staff
     where stano like #{stano,jdbcType=VARCHAR} or staname like #{stano,jdbcType=VARCHAR}
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from staff
+    where stadepartment = #{stano,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
     select 
@@ -48,6 +60,7 @@
     delete from staff
     where stano = #{stano,jdbcType=VARCHAR}
   </delete>
+  
   <insert id="insert" parameterType="com.accp.pojo.Staff" >
     insert into staff (stano, dimno, posno, 
       username, depno, staname, 
@@ -59,7 +72,7 @@
     values (#{stano,jdbcType=VARCHAR}, #{dimno,jdbcType=VARCHAR}, #{posno,jdbcType=INTEGER}, 
       #{username,jdbcType=VARCHAR}, #{depno,jdbcType=INTEGER}, #{staname,jdbcType=VARCHAR}, 
       #{stasex,jdbcType=VARCHAR}, #{stapicture,jdbcType=VARCHAR}, #{stashop,jdbcType=VARCHAR}, 
-      #{stadepartment,jdbcType=INTEGER}, #{staproperty,jdbcType=VARCHAR}, #{staaddress,jdbcType=VARCHAR}, 
+      #{stadepartment.depno,jdbcType=INTEGER}, #{staproperty,jdbcType=VARCHAR}, #{staaddress,jdbcType=VARCHAR}, 
       #{staphone,jdbcType=VARCHAR}, #{staentrydate,jdbcType=DATE}, #{stausedate,jdbcType=DATE}, 
       #{stabirthdate,jdbcType=DATE}, #{stacontractstart,jdbcType=DATE}, #{stacontractover,jdbcType=DATE}, 
       #{stausername,jdbcType=VARCHAR})
@@ -246,16 +259,11 @@
     where stano = #{stano,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Staff" >
-    update staff
-    set dimno = #{dimno,jdbcType=VARCHAR},
-      posno = #{posno,jdbcType=INTEGER},
-      username = #{username,jdbcType=VARCHAR},
-      depno = #{depno,jdbcType=INTEGER},
+    update staff set
       staname = #{staname,jdbcType=VARCHAR},
       stasex = #{stasex,jdbcType=VARCHAR},
       stapicture = #{stapicture,jdbcType=VARCHAR},
       stashop = #{stashop,jdbcType=VARCHAR},
-      stadepartment = #{stadepartment,jdbcType=INTEGER},
       staproperty = #{staproperty,jdbcType=VARCHAR},
       staaddress = #{staaddress,jdbcType=VARCHAR},
       staphone = #{staphone,jdbcType=VARCHAR},

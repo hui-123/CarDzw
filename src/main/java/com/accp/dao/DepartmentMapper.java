@@ -1,5 +1,7 @@
 package com.accp.dao;
 
+import java.util.List;
+
 import com.accp.pojo.Department;
 
 public interface DepartmentMapper {
@@ -8,6 +10,8 @@ public interface DepartmentMapper {
     int insert(Department record);
 
     int insertSelective(Department record);
+    
+    List<Department> selectAll();
 
     Department selectByPrimaryKey(Integer depno);
 

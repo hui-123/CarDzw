@@ -16,6 +16,9 @@
     from post
     where posno = #{posno,jdbcType=INTEGER}
   </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select * from post
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from post
     where posno = #{posno,jdbcType=INTEGER}
@@ -74,9 +77,9 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Post" >
     update post
-    set stano = #{stano,jdbcType=VARCHAR},
-      posname = #{posname,jdbcType=VARCHAR},
-      posstano = #{posstano,jdbcType=VARCHAR}
+    set 
+      posno = #{post.posno,jdbcType=INTEGER},
+      posname = #{post.posname,jdbcType=VARCHAR}
     where posno = #{posno,jdbcType=INTEGER}
   </update>
 </mapper>

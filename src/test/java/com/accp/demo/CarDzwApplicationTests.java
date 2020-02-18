@@ -8,6 +8,7 @@ class CarDzwApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("12");
 	}
 
 }

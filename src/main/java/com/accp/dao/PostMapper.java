@@ -1,7 +1,12 @@
 package com.accp.dao;
 
-import com.accp.pojo.Post;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import com.accp.pojo.Post;
+@Mapper
 public interface PostMapper {
     int deleteByPrimaryKey(Integer posno);
 
@@ -10,8 +15,10 @@ public interface PostMapper {
     int insertSelective(Post record);
 
     Post selectByPrimaryKey(Integer posno);
+    
+    List<Post> selectAll();
 
     int updateByPrimaryKeySelective(Post record);
 
-    int updateByPrimaryKey(Post record);
+    int updateByPrimaryKey(@Param("post")Post record,@Param("posno")int posno);
 }
