@@ -36,6 +36,8 @@ public class WebConfig implements WebMvcConfigurer {
 		return new HttpMessageConverters(fjhmc);
 	}
 
+	
+	
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		// 设置允许跨域的路径

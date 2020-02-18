@@ -2,6 +2,7 @@ package com.accp.dao;
 
 import java.util.List;
 
+
 /*
  * 客户表
  * */
@@ -22,4 +23,6 @@ public interface ClientMapper {
     int updateByPrimaryKey(Client record);
     
     public List<Client> findListKehu();
+    
+    public List<Client> findNameShouJi(Client Client);
 }

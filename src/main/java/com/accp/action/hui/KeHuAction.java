@@ -31,6 +31,7 @@ public class KeHuAction {
 		return khBiz.findListKehu();
 	}
 
+
 	@PostMapping("/add")
 	public Map<String, String> addKehu(@RequestBody Client record) {
 		Map<String, String> message = new HashMap<String, String>();
@@ -61,4 +62,11 @@ public class KeHuAction {
 	public Client findByCliNo(@PathVariable String clino) {
 		return khBiz.ByClino(clino);
 	}
+	
+	@PostMapping("/ByName")
+	public List<Client> findNameShouJi(@RequestBody Client Client) {
+		return khBiz.findNameShouJi(Client);
+	}
+
+
 }

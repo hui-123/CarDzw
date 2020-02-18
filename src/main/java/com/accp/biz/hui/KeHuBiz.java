@@ -43,5 +43,9 @@ public class KeHuBiz {
 	public int Update(Client Client) {
 		return ziLiao.updateByPrimaryKeySelective(Client);
 	}
+	//条件查询
+	public List<Client> findNameShouJi(Client Client){
+		return ziLiao.findNameShouJi(Client);	
+	}
 	
 }
