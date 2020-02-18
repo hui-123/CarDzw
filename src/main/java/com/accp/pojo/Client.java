@@ -2,6 +2,9 @@ package com.accp.pojo;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
+
 public class Client {
     private String clino;
 
@@ -18,7 +21,7 @@ public class Client {
     private String cliphone;
 
     private String cliaddress;
-
+    @JsonFilter("yyyy-MM-dd")
     private Date clibirthday;
 
     private Integer clipaymentdays;
@@ -43,7 +46,16 @@ public class Client {
         return setno;
     }
 
-    public void setSetno(String setno) {
+    @Override
+	public String toString() {
+		return "Client [clino=" + clino + ", setno=" + setno + ", cvdnumber=" + cvdnumber + ", stano=" + stano
+				+ ", cliname=" + cliname + ", clicontact=" + clicontact + ", cliphone=" + cliphone + ", cliaddress="
+				+ cliaddress + ", clibirthday=" + clibirthday + ", clipaymentdays=" + clipaymentdays
+				+ ", cliguazhangyue=" + cliguazhangyue + ", clizhuanshuguwen=" + clizhuanshuguwen + ", guwendianhua="
+				+ guwendianhua + ", cliremark=" + cliremark + "]";
+	}
+
+	public void setSetno(String setno) {
         this.setno = setno == null ? null : setno.trim();
     }
 

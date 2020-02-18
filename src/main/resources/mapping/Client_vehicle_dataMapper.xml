@@ -1,297 +1,355 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.accp.dao.Client_vehicle_dataMapper" >
-  <resultMap id="BaseResultMap" type="com.accp.pojo.Client_vehicle_data" >
-    <id column="cvdnumber" property="cvdnumber" jdbcType="VARCHAR" />
-    <result column="clino" property="clino" jdbcType="VARCHAR" />
-    <result column="jiecvdnumber" property="jiecvdnumber" jdbcType="VARCHAR" />
-    <result column="brano" property="brano" jdbcType="VARCHAR" />
-    <result column="setno" property="setno" jdbcType="VARCHAR" />
-    <result column="cpno" property="cpno" jdbcType="VARCHAR" />
-    <result column="engno" property="engno" jdbcType="INTEGER" />
-    <result column="cvdbrand" property="cvdbrand" jdbcType="VARCHAR" />
-    <result column="cvdtype" property="cvdtype" jdbcType="VARCHAR" />
-    <result column="cvddriver" property="cvddriver" jdbcType="VARCHAR" />
-    <result column="cvdphone" property="cvdphone" jdbcType="INTEGER" />
-    <result column="cvdbirthdate" property="cvdbirthdate" jdbcType="DATE" />
-    <result column="clecpno" property="clecpno" jdbcType="INTEGER" />
-    <result column="cvdaffiliation" property="cvdaffiliation" jdbcType="VARCHAR" />
-    <result column="cvdzhengjiandaoqiriqi" property="cvdzhengjiandaoqiriqi" jdbcType="DATE" />
-    <result column="cvdvin" property="cvdvin" jdbcType="VARCHAR" />
-    <result column="clecvdenginenumber" property="clecvdenginenumber" jdbcType="VARCHAR" />
-    <result column="clibrano" property="clibrano" jdbcType="VARCHAR" />
-    <result column="cvdshangpairiqi" property="cvdshangpairiqi" jdbcType="DATE" />
-    <result column="cvdchejiandaoqi" property="cvdchejiandaoqi" jdbcType="DATE" />
-    <result column="cvdfueloil" property="cvdfueloil" jdbcType="VARCHAR" />
-    <result column="cvdclino" property="cvdclino" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    cvdnumber, clino, jiecvdnumber, brano, setno, cpno, engno, cvdbrand, cvdtype, cvddriver, 
-    cvdphone, cvdbirthdate, clecpno, cvdaffiliation, cvdzhengjiandaoqiriqi, cvdvin, clecvdenginenumber, 
-    clibrano, cvdshangpairiqi, cvdchejiandaoqi, cvdfueloil, cvdclino
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from client_vehicle_data
-    where cvdnumber = #{cvdnumber,jdbcType=VARCHAR}
-  </select>
-  
- 
-  
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from client_vehicle_data
-    where cvdnumber = #{cvdnumber,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.accp.pojo.Client_vehicle_data" >
-    insert into client_vehicle_data (cvdnumber, clino, jiecvdnumber, 
-      brano, setno, cpno, 
-      engno, cvdbrand, cvdtype, 
-      cvddriver, cvdphone, cvdbirthdate, 
-      clecpno, cvdaffiliation, cvdzhengjiandaoqiriqi, 
-      cvdvin, clecvdenginenumber, clibrano, 
-      cvdshangpairiqi, cvdchejiandaoqi, cvdfueloil, 
-      cvdclino)
-    values (#{cvdnumber,jdbcType=VARCHAR}, #{clino,jdbcType=VARCHAR}, #{jiecvdnumber,jdbcType=VARCHAR}, 
-      #{brano,jdbcType=VARCHAR}, #{setno,jdbcType=VARCHAR}, #{cpno,jdbcType=VARCHAR}, 
-      #{engno,jdbcType=INTEGER}, #{cvdbrand,jdbcType=VARCHAR}, #{cvdtype,jdbcType=VARCHAR}, 
-      #{cvddriver,jdbcType=VARCHAR}, #{cvdphone,jdbcType=INTEGER}, #{cvdbirthdate,jdbcType=DATE}, 
-      #{clecpno,jdbcType=INTEGER}, #{cvdaffiliation,jdbcType=VARCHAR}, #{cvdzhengjiandaoqiriqi,jdbcType=DATE}, 
-      #{cvdvin,jdbcType=VARCHAR}, #{clecvdenginenumber,jdbcType=VARCHAR}, #{clibrano,jdbcType=VARCHAR}, 
-      #{cvdshangpairiqi,jdbcType=DATE}, #{cvdchejiandaoqi,jdbcType=DATE}, #{cvdfueloil,jdbcType=VARCHAR}, 
-      #{cvdclino,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.accp.pojo.Client_vehicle_data" >
-    insert into client_vehicle_data
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="cvdnumber != null" >
-        cvdnumber,
-      </if>
-      <if test="clino != null" >
-        clino,
-      </if>
-      <if test="jiecvdnumber != null" >
-        jiecvdnumber,
-      </if>
-      <if test="brano != null" >
-        brano,
-      </if>
-      <if test="setno != null" >
-        setno,
-      </if>
-      <if test="cpno != null" >
-        cpno,
-      </if>
-      <if test="engno != null" >
-        engno,
-      </if>
-      <if test="cvdbrand != null" >
-        cvdbrand,
-      </if>
-      <if test="cvdtype != null" >
-        cvdtype,
-      </if>
-      <if test="cvddriver != null" >
-        cvddriver,
-      </if>
-      <if test="cvdphone != null" >
-        cvdphone,
-      </if>
-      <if test="cvdbirthdate != null" >
-        cvdbirthdate,
-      </if>
-      <if test="clecpno != null" >
-        clecpno,
-      </if>
-      <if test="cvdaffiliation != null" >
-        cvdaffiliation,
-      </if>
-      <if test="cvdzhengjiandaoqiriqi != null" >
-        cvdzhengjiandaoqiriqi,
-      </if>
-      <if test="cvdvin != null" >
-        cvdvin,
-      </if>
-      <if test="clecvdenginenumber != null" >
-        clecvdenginenumber,
-      </if>
-      <if test="clibrano != null" >
-        clibrano,
-      </if>
-      <if test="cvdshangpairiqi != null" >
-        cvdshangpairiqi,
-      </if>
-      <if test="cvdchejiandaoqi != null" >
-        cvdchejiandaoqi,
-      </if>
-      <if test="cvdfueloil != null" >
-        cvdfueloil,
-      </if>
-      <if test="cvdclino != null" >
-        cvdclino,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="cvdnumber != null" >
-        #{cvdnumber,jdbcType=VARCHAR},
-      </if>
-      <if test="clino != null" >
-        #{clino,jdbcType=VARCHAR},
-      </if>
-      <if test="jiecvdnumber != null" >
-        #{jiecvdnumber,jdbcType=VARCHAR},
-      </if>
-      <if test="brano != null" >
-        #{brano,jdbcType=VARCHAR},
-      </if>
-      <if test="setno != null" >
-        #{setno,jdbcType=VARCHAR},
-      </if>
-      <if test="cpno != null" >
-        #{cpno,jdbcType=VARCHAR},
-      </if>
-      <if test="engno != null" >
-        #{engno,jdbcType=INTEGER},
-      </if>
-      <if test="cvdbrand != null" >
-        #{cvdbrand,jdbcType=VARCHAR},
-      </if>
-      <if test="cvdtype != null" >
-        #{cvdtype,jdbcType=VARCHAR},
-      </if>
-      <if test="cvddriver != null" >
-        #{cvddriver,jdbcType=VARCHAR},
-      </if>
-      <if test="cvdphone != null" >
-        #{cvdphone,jdbcType=INTEGER},
-      </if>
-      <if test="cvdbirthdate != null" >
-        #{cvdbirthdate,jdbcType=DATE},
-      </if>
-      <if test="clecpno != null" >
-        #{clecpno,jdbcType=INTEGER},
-      </if>
-      <if test="cvdaffiliation != null" >
-        #{cvdaffiliation,jdbcType=VARCHAR},
-      </if>
-      <if test="cvdzhengjiandaoqiriqi != null" >
-        #{cvdzhengjiandaoqiriqi,jdbcType=DATE},
-      </if>
-      <if test="cvdvin != null" >
-        #{cvdvin,jdbcType=VARCHAR},
-      </if>
-      <if test="clecvdenginenumber != null" >
-        #{clecvdenginenumber,jdbcType=VARCHAR},
-      </if>
-      <if test="clibrano != null" >
-        #{clibrano,jdbcType=VARCHAR},
-      </if>
-      <if test="cvdshangpairiqi != null" >
-        #{cvdshangpairiqi,jdbcType=DATE},
-      </if>
-      <if test="cvdchejiandaoqi != null" >
-        #{cvdchejiandaoqi,jdbcType=DATE},
-      </if>
-      <if test="cvdfueloil != null" >
-        #{cvdfueloil,jdbcType=VARCHAR},
-      </if>
-      <if test="cvdclino != null" >
-        #{cvdclino,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Client_vehicle_data" >
-    update client_vehicle_data
-    <set >
-      <if test="clino != null" >
-        clino = #{clino,jdbcType=VARCHAR},
-      </if>
-      <if test="jiecvdnumber != null" >
-        jiecvdnumber = #{jiecvdnumber,jdbcType=VARCHAR},
-      </if>
-      <if test="brano != null" >
-        brano = #{brano,jdbcType=VARCHAR},
-      </if>
-      <if test="setno != null" >
-        setno = #{setno,jdbcType=VARCHAR},
-      </if>
-      <if test="cpno != null" >
-        cpno = #{cpno,jdbcType=VARCHAR},
-      </if>
-      <if test="engno != null" >
-        engno = #{engno,jdbcType=INTEGER},
-      </if>
-      <if test="cvdbrand != null" >
-        cvdbrand = #{cvdbrand,jdbcType=VARCHAR},
-      </if>
-      <if test="cvdtype != null" >
-        cvdtype = #{cvdtype,jdbcType=VARCHAR},
-      </if>
-      <if test="cvddriver != null" >
-        cvddriver = #{cvddriver,jdbcType=VARCHAR},
-      </if>
-      <if test="cvdphone != null" >
-        cvdphone = #{cvdphone,jdbcType=INTEGER},
-      </if>
-      <if test="cvdbirthdate != null" >
-        cvdbirthdate = #{cvdbirthdate,jdbcType=DATE},
-      </if>
-      <if test="clecpno != null" >
-        clecpno = #{clecpno,jdbcType=INTEGER},
-      </if>
-      <if test="cvdaffiliation != null" >
-        cvdaffiliation = #{cvdaffiliation,jdbcType=VARCHAR},
-      </if>
-      <if test="cvdzhengjiandaoqiriqi != null" >
-        cvdzhengjiandaoqiriqi = #{cvdzhengjiandaoqiriqi,jdbcType=DATE},
-      </if>
-      <if test="cvdvin != null" >
-        cvdvin = #{cvdvin,jdbcType=VARCHAR},
-      </if>
-      <if test="clecvdenginenumber != null" >
-        clecvdenginenumber = #{clecvdenginenumber,jdbcType=VARCHAR},
-      </if>
-      <if test="clibrano != null" >
-        clibrano = #{clibrano,jdbcType=VARCHAR},
-      </if>
-      <if test="cvdshangpairiqi != null" >
-        cvdshangpairiqi = #{cvdshangpairiqi,jdbcType=DATE},
-      </if>
-      <if test="cvdchejiandaoqi != null" >
-        cvdchejiandaoqi = #{cvdchejiandaoqi,jdbcType=DATE},
-      </if>
-      <if test="cvdfueloil != null" >
-        cvdfueloil = #{cvdfueloil,jdbcType=VARCHAR},
-      </if>
-      <if test="cvdclino != null" >
-        cvdclino = #{cvdclino,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where cvdnumber = #{cvdnumber,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Client_vehicle_data" >
-    update client_vehicle_data
-    set clino = #{clino,jdbcType=VARCHAR},
-      jiecvdnumber = #{jiecvdnumber,jdbcType=VARCHAR},
-      brano = #{brano,jdbcType=VARCHAR},
-      setno = #{setno,jdbcType=VARCHAR},
-      cpno = #{cpno,jdbcType=VARCHAR},
-      engno = #{engno,jdbcType=INTEGER},
-      cvdbrand = #{cvdbrand,jdbcType=VARCHAR},
-      cvdtype = #{cvdtype,jdbcType=VARCHAR},
-      cvddriver = #{cvddriver,jdbcType=VARCHAR},
-      cvdphone = #{cvdphone,jdbcType=INTEGER},
-      cvdbirthdate = #{cvdbirthdate,jdbcType=DATE},
-      clecpno = #{clecpno,jdbcType=INTEGER},
-      cvdaffiliation = #{cvdaffiliation,jdbcType=VARCHAR},
-      cvdzhengjiandaoqiriqi = #{cvdzhengjiandaoqiriqi,jdbcType=DATE},
-      cvdvin = #{cvdvin,jdbcType=VARCHAR},
-      clecvdenginenumber = #{clecvdenginenumber,jdbcType=VARCHAR},
-      clibrano = #{clibrano,jdbcType=VARCHAR},
-      cvdshangpairiqi = #{cvdshangpairiqi,jdbcType=DATE},
-      cvdchejiandaoqi = #{cvdchejiandaoqi,jdbcType=DATE},
-      cvdfueloil = #{cvdfueloil,jdbcType=VARCHAR},
-      cvdclino = #{cvdclino,jdbcType=VARCHAR}
-    where cvdnumber = #{cvdnumber,jdbcType=VARCHAR}
-  </update>
+<mapper namespace="com.accp.dao.Client_vehicle_dataMapper">
+	<resultMap id="BaseResultMap" type="com.accp.pojo.Client_vehicle_data">
+		<id column="cvdnumber" property="cvdnumber" jdbcType="VARCHAR" />
+		<result column="clino" property="clino" jdbcType="VARCHAR" />
+		<result column="jiecvdnumber" property="jiecvdnumber" jdbcType="VARCHAR" />
+		<result column="brano" property="brano" jdbcType="VARCHAR" />
+		<result column="setno" property="setno" jdbcType="VARCHAR" />
+		<result column="cpno" property="cpno" jdbcType="VARCHAR" />
+		<result column="engno" property="engno" jdbcType="INTEGER" />
+		<result column="cvdbrand" property="cvdbrand" jdbcType="VARCHAR" />
+		<result column="cvdtype" property="cvdtype" jdbcType="VARCHAR" />
+		<result column="cvddriver" property="cvddriver" jdbcType="VARCHAR" />
+		<result column="cvdphone" property="cvdphone" jdbcType="INTEGER" />
+		<result column="cvdbirthdate" property="cvdbirthdate" jdbcType="DATE" />
+		<result column="clecpno" property="clecpno" jdbcType="INTEGER" />
+		<result column="cvdaffiliation" property="cvdaffiliation"
+			jdbcType="VARCHAR" />
+		<result column="cvdzhengjiandaoqiriqi" property="cvdzhengjiandaoqiriqi"
+			jdbcType="DATE" />
+		<result column="cvdvin" property="cvdvin" jdbcType="VARCHAR" />
+		<result column="clecvdenginenumber" property="clecvdenginenumber"
+			jdbcType="VARCHAR" />
+		<result column="clibrano" property="clibrano" jdbcType="VARCHAR" />
+		<result column="cvdshangpairiqi" property="cvdshangpairiqi"
+			jdbcType="DATE" />
+		<result column="cvdchejiandaoqi" property="cvdchejiandaoqi"
+			jdbcType="DATE" />
+		<result column="cvdfueloil" property="cvdfueloil" jdbcType="VARCHAR" />
+		<result column="cvdclino" property="cvdclino" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		cvdnumber, clino, jiecvdnumber, brano, setno, cpno, engno,
+		cvdbrand, cvdtype,
+		cvddriver,
+		cvdphone, cvdbirthdate, clecpno,
+		cvdaffiliation, cvdzhengjiandaoqiriqi, cvdvin,
+		clecvdenginenumber,
+		clibrano, cvdshangpairiqi, cvdchejiandaoqi, cvdfueloil, cvdclino
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from client_vehicle_data
+		where cvdnumber =
+		#{cvdnumber,jdbcType=VARCHAR}
+	</select>
+	<!-- 查询全部车辆信息 -->
+	<select id="findCheLiang" resultType="com.accp.vo.hui.CheLiang">
+		SELECT * FROM
+		`client_vehicle_data` INNER JOIN `brand` ON
+		client_vehicle_data.`brano`=brand.`brano`
+	</select>
+	<!-- 查询车辆品牌 -->
+	<select id="findChePinPai" resultType="com.accp.vo.hui.ChePinPai">
+		SELECT *FROM `models`
+		INNER JOIN `brand` ON `brand`.`brano`=models.`brano`
+	</select>
+	<!-- 查询客户名称 -->
+	<select id="findKeName" resultType="com.accp.vo.hui.KuHuChe">
+		SELECT * FROM `client` 
+	</select>
+	<select id="selectChepaihs" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from client_vehicle_data
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		client_vehicle_data
+		where cvdnumber = #{cvdnumber,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.accp.pojo.Client_vehicle_data">
+		insert into
+		client_vehicle_data (cvdnumber, clino, jiecvdnumber,
+		brano, setno,
+		cpno,
+		engno, cvdbrand, cvdtype,
+		cvddriver, cvdphone, cvdbirthdate,
+		clecpno, cvdaffiliation, cvdzhengjiandaoqiriqi,
+		cvdvin,
+		clecvdenginenumber, clibrano,
+		cvdshangpairiqi, cvdchejiandaoqi,
+		cvdfueloil,
+		cvdclino)
+		values (#{cvdnumber,jdbcType=VARCHAR},
+		#{clino,jdbcType=VARCHAR},
+		#{jiecvdnumber,jdbcType=VARCHAR},
+		#{brano,jdbcType=VARCHAR}, #{setno,jdbcType=VARCHAR},
+		#{cpno,jdbcType=VARCHAR},
+		#{engno,jdbcType=INTEGER},
+		#{cvdbrand,jdbcType=VARCHAR},
+		#{cvdtype,jdbcType=VARCHAR},
+		#{cvddriver,jdbcType=VARCHAR}, #{cvdphone,jdbcType=INTEGER},
+		#{cvdbirthdate,jdbcType=DATE},
+		#{clecpno,jdbcType=INTEGER},
+		#{cvdaffiliation,jdbcType=VARCHAR},
+		#{cvdzhengjiandaoqiriqi,jdbcType=DATE},
+		#{cvdvin,jdbcType=VARCHAR},
+		#{clecvdenginenumber,jdbcType=VARCHAR}, #{clibrano,jdbcType=VARCHAR},
+		#{cvdshangpairiqi,jdbcType=DATE}, #{cvdchejiandaoqi,jdbcType=DATE},
+		#{cvdfueloil,jdbcType=VARCHAR},
+		#{cvdclino,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.accp.pojo.Client_vehicle_data">
+		insert into client_vehicle_data
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="cvdnumber != null">
+				cvdnumber,
+			</if>
+			<if test="clino != null">
+				clino,
+			</if>
+			<if test="jiecvdnumber != null">
+				jiecvdnumber,
+			</if>
+			<if test="brano != null">
+				brano,
+			</if>
+			<if test="setno != null">
+				setno,
+			</if>
+			<if test="cpno != null">
+				cpno,
+			</if>
+			<if test="engno != null">
+				engno,
+			</if>
+			<if test="cvdbrand != null">
+				cvdbrand,
+			</if>
+			<if test="cvdtype != null">
+				cvdtype,
+			</if>
+			<if test="cvddriver != null">
+				cvddriver,
+			</if>
+			<if test="cvdphone != null">
+				cvdphone,
+			</if>
+			<if test="cvdbirthdate != null">
+				cvdbirthdate,
+			</if>
+			<if test="clecpno != null">
+				clecpno,
+			</if>
+			<if test="cvdaffiliation != null">
+				cvdaffiliation,
+			</if>
+			<if test="cvdzhengjiandaoqiriqi != null">
+				cvdzhengjiandaoqiriqi,
+			</if>
+			<if test="cvdvin != null">
+				cvdvin,
+			</if>
+			<if test="clecvdenginenumber != null">
+				clecvdenginenumber,
+			</if>
+			<if test="clibrano != null">
+				clibrano,
+			</if>
+			<if test="cvdshangpairiqi != null">
+				cvdshangpairiqi,
+			</if>
+			<if test="cvdchejiandaoqi != null">
+				cvdchejiandaoqi,
+			</if>
+			<if test="cvdfueloil != null">
+				cvdfueloil,
+			</if>
+			<if test="cvdclino != null">
+				cvdclino,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="cvdnumber != null">
+				#{cvdnumber,jdbcType=VARCHAR},
+			</if>
+			<if test="clino != null">
+				#{clino,jdbcType=VARCHAR},
+			</if>
+			<if test="jiecvdnumber != null">
+				#{jiecvdnumber,jdbcType=VARCHAR},
+			</if>
+			<if test="brano != null">
+				#{brano,jdbcType=VARCHAR},
+			</if>
+			<if test="setno != null">
+				#{setno,jdbcType=VARCHAR},
+			</if>
+			<if test="cpno != null">
+				#{cpno,jdbcType=VARCHAR},
+			</if>
+			<if test="engno != null">
+				#{engno,jdbcType=INTEGER},
+			</if>
+			<if test="cvdbrand != null">
+				#{cvdbrand,jdbcType=VARCHAR},
+			</if>
+			<if test="cvdtype != null">
+				#{cvdtype,jdbcType=VARCHAR},
+			</if>
+			<if test="cvddriver != null">
+				#{cvddriver,jdbcType=VARCHAR},
+			</if>
+			<if test="cvdphone != null">
+				#{cvdphone,jdbcType=INTEGER},
+			</if>
+			<if test="cvdbirthdate != null">
+				#{cvdbirthdate,jdbcType=DATE},
+			</if>
+			<if test="clecpno != null">
+				#{clecpno,jdbcType=INTEGER},
+			</if>
+			<if test="cvdaffiliation != null">
+				#{cvdaffiliation,jdbcType=VARCHAR},
+			</if>
+			<if test="cvdzhengjiandaoqiriqi != null">
+				#{cvdzhengjiandaoqiriqi,jdbcType=DATE},
+			</if>
+			<if test="cvdvin != null">
+				#{cvdvin,jdbcType=VARCHAR},
+			</if>
+			<if test="clecvdenginenumber != null">
+				#{clecvdenginenumber,jdbcType=VARCHAR},
+			</if>
+			<if test="clibrano != null">
+				#{clibrano,jdbcType=VARCHAR},
+			</if>
+			<if test="cvdshangpairiqi != null">
+				#{cvdshangpairiqi,jdbcType=DATE},
+			</if>
+			<if test="cvdchejiandaoqi != null">
+				#{cvdchejiandaoqi,jdbcType=DATE},
+			</if>
+			<if test="cvdfueloil != null">
+				#{cvdfueloil,jdbcType=VARCHAR},
+			</if>
+			<if test="cvdclino != null">
+				#{cvdclino,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Client_vehicle_data">
+		update client_vehicle_data
+		<set>
+			<if test="clino != null and clino!='' ">
+				clino = #{clino,jdbcType=VARCHAR},
+			</if>
+			<if test="jiecvdnumber != null and jiecvdnumber!=''">
+				jiecvdnumber = #{jiecvdnumber,jdbcType=VARCHAR},
+			</if>
+			<if test="brano != null and brano!=''">
+				brano = #{brano,jdbcType=VARCHAR},
+			</if>
+			<if test="setno != null">
+				setno = #{setno,jdbcType=VARCHAR},
+			</if>
+			<if test="cpno != null and cpno!=''">
+				cpno = #{cpno,jdbcType=VARCHAR},
+			</if>
+			<if test="engno != null and engno!=''">
+				engno = #{engno,jdbcType=INTEGER},
+			</if>
+			<if test="cvdbrand != null">
+				cvdbrand = #{cvdbrand,jdbcType=VARCHAR},
+			</if>
+			<if test="cvdtype != null">
+				cvdtype = #{cvdtype,jdbcType=VARCHAR},
+			</if>
+			<if test="cvddriver != null">
+				cvddriver = #{cvddriver,jdbcType=VARCHAR},
+			</if>
+			<if test="cvdphone != null">
+				cvdphone = #{cvdphone,jdbcType=INTEGER},
+			</if>
+			<if test="cvdbirthdate != null">
+				cvdbirthdate = #{cvdbirthdate,jdbcType=DATE},
+			</if>
+			<if test="clecpno != null">
+				clecpno = #{clecpno,jdbcType=INTEGER},
+			</if>
+			<if test="cvdaffiliation != null">
+				cvdaffiliation = #{cvdaffiliation,jdbcType=VARCHAR},
+			</if>
+			<if test="cvdzhengjiandaoqiriqi != null">
+				cvdzhengjiandaoqiriqi =
+				#{cvdzhengjiandaoqiriqi,jdbcType=DATE},
+			</if>
+			<if test="cvdvin != null">
+				cvdvin = #{cvdvin,jdbcType=VARCHAR},
+			</if>
+			<if test="clecvdenginenumber != null">
+				clecvdenginenumber =
+				#{clecvdenginenumber,jdbcType=VARCHAR},
+			</if>
+			<if test="clibrano != null">
+				clibrano = #{clibrano,jdbcType=VARCHAR},
+			</if>
+			<if test="cvdshangpairiqi != null">
+				cvdshangpairiqi = #{cvdshangpairiqi,jdbcType=DATE},
+			</if>
+			<if test="cvdchejiandaoqi != null">
+				cvdchejiandaoqi = #{cvdchejiandaoqi,jdbcType=DATE},
+			</if>
+			<if test="cvdfueloil != null">
+				cvdfueloil = #{cvdfueloil,jdbcType=VARCHAR},
+			</if>
+			<if test="cvdclino != null">
+				cvdclino = #{cvdclino,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where cvdnumber = #{cvdnumber,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.accp.pojo.Client_vehicle_data">
+		update
+		client_vehicle_data
+		set clino = #{clino,jdbcType=VARCHAR},
+		jiecvdnumber
+		= #{jiecvdnumber,jdbcType=VARCHAR},
+		brano = #{brano,jdbcType=VARCHAR},
+		setno = #{setno,jdbcType=VARCHAR},
+		cpno = #{cpno,jdbcType=VARCHAR},
+		engno = #{engno,jdbcType=INTEGER},
+		cvdbrand =
+		#{cvdbrand,jdbcType=VARCHAR},
+		cvdtype = #{cvdtype,jdbcType=VARCHAR},
+		cvddriver = #{cvddriver,jdbcType=VARCHAR},
+		cvdphone =
+		#{cvdphone,jdbcType=INTEGER},
+		cvdbirthdate =
+		#{cvdbirthdate,jdbcType=DATE},
+		clecpno = #{clecpno,jdbcType=INTEGER},
+		cvdaffiliation = #{cvdaffiliation,jdbcType=VARCHAR},
+		cvdzhengjiandaoqiriqi = #{cvdzhengjiandaoqiriqi,jdbcType=DATE},
+		cvdvin
+		= #{cvdvin,jdbcType=VARCHAR},
+		clecvdenginenumber =
+		#{clecvdenginenumber,jdbcType=VARCHAR},
+		clibrano =
+		#{clibrano,jdbcType=VARCHAR},
+		cvdshangpairiqi =
+		#{cvdshangpairiqi,jdbcType=DATE},
+		cvdchejiandaoqi =
+		#{cvdchejiandaoqi,jdbcType=DATE},
+		cvdfueloil =
+		#{cvdfueloil,jdbcType=VARCHAR},
+		cvdclino = #{cvdclino,jdbcType=VARCHAR}
+		where cvdnumber = #{cvdnumber,jdbcType=VARCHAR}
+	</update>
 </mapper>
